@@ -1,0 +1,11 @@
+{{ post.content }}<br>
+<img src="{{ post.img.url }}" width="300"><br>
+{% if post.file %}
+<a href="{{ post.file.url }}" download>
+    <div class="downbox">
+        <span class="chumboo">첨부파일</span>
+        <!-- <span class="filename">vkdlf.jpeg</span> -->
+        <span class="filename">{{ post.get_file_name }}</span>
+    </div>
+</a>
+{% endif %} 

@@ -1,0 +1,16 @@
+{% for p in post %}
+    <div>
+        <a href="{% url 'board_detail' pk=p.pk %}">
+        {{ p.title }}<br>
+        {{ p.content }}<br>
+        <img src="{{ p.img.url }}" width="300"><br>
+        {{ p.date }}
+        </a>
+    </div>
+{% endfor %}
+
+<div class="btn_contain">
+    <div class="newbtn">
+      <a href="{% url 'board_post' %}">+ 글쓰기</a>
+    </div>
+  </div>
