@@ -1,3 +1,7 @@
+{% for category in category %}
+<li>
+  <a href="{{ category.get_absolute_url }}">{{category}}</a>
+{% endfor %}
 {% for p in post %}
     <div>
         <a href="{% url 'board_detail' pk=p.pk %}">

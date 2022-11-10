@@ -1,10 +1,12 @@
 from django.shortcuts import get_object_or_404, redirect, render
-from .models import Post
+from .models import Post, Category
 from mainapp.forms import PostForm
 # Create your views here.
 def main(request):
     post = Post.objects.all()
-    return render(request, 'main.html',{'post':post})
+    category = Category.objects.all()
+    # count = Category.objects.filter(name=)
+    return render(request, 'main.html',{'post':post, 'category':category})
 
 
 def board_post(request):
@@ -22,6 +24,22 @@ def board_post(request):
 def board_detail(request, pk):
     # all = comm.objects.all()
     p = get_object_or_404(Post, pk=pk)
+    # c = get_object_or_404(Category, pk=pk)
     # form = CommentForm()
     # reform = ReCommentForm()
-    return render(request, 'board_detail.html',{'post':p})
+    return render(request, 'board_detail.html',{'post':p, 'category':p.category.name})
+
+def category_page(request, slug):
+    category = Category.objects.get(slug=slug)
+    post_list = Post.objects.filter(category=category)
+    post = Post.objects.all()
+    return render(
+        request,
+        'category_page.html',
+        {
+            'post_list':post_list,
+            'cotegories':Category.objects.all(),
+            'category':category,
+            'post':post,
+        }
+    ) 
