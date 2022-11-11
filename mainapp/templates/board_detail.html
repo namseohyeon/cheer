@@ -10,7 +10,12 @@
 </a>
 {% endif %} 
 
-
+<h2>스크랩 ({{ post.scrap.all.count }})</h2>
+{% if user in post.scrap.all %}
+    <a href="{% url 'scrap' pk=post.pk %}">스크랩삭제</a>
+{% else %}
+    <a href="{% url 'scrap' pk=post.pk %}">스크랩하기</a>
+{% endif %}
 
 
 {% if user.is_authenticated %}
@@ -29,8 +34,11 @@
         {% else %} 
            <p>{{ c.created_at }}</p>
         {% endif %}
-        <a href="{% url 'comment_update' pk=c.pk %}">수정</a>
-        <a href="{% url 'comment_delete' pk=c.pk %}">삭제</a>
+
+        {% if user == c.user %}
+            <a href="{% url 'comment_update' pk=c.pk %}">수정</a>
+            <a href="{% url 'comment_delete' pk=c.pk %}">삭제</a>
+        {% endif %}
         <hr>
     {% endfor %}
   </form>
