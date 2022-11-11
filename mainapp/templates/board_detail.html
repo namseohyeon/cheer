@@ -9,3 +9,28 @@
     </div>
 </a>
 {% endif %} 
+
+
+
+
+
+
+<!--create-->
+{% if user.is_authenticated %}
+  <form action="{% url 'comments_create' pk=post.pk %}" method="POST">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit">
+    <hr>
+    <h4>댓글 ({{ post.comment_set.count }})</h4>
+    
+    {% for c in post.comment_set.all %}
+        <p>작성자: {{ c.user }} </p>
+        <p>{{ c.content }}</p>
+        <p>{{ c.created_at }}</p>
+        <hr>
+    {% endfor %}
+  </form>
+{% else %}
+  <a href="{% url 'login' %}">[댓글을 작성하려면 로그인하세요.]</a>
+{% endif %}
