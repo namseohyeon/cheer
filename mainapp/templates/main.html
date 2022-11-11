@@ -28,8 +28,14 @@
         {{ p.title }}<br>
         {{ p.content }}<br>
         {{ p.category }}<br>
+        {% for tag in p.Tag.iterator %}
+          {{ tag }}
+        {% endfor %}
         <img src="{{ p.img.url }}" width="300"><br>
         {{ p.date }}
         </a>
+        <br>
+        <br>
+        <br>
     </div>
 {% endfor %}

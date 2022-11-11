@@ -1,6 +1,7 @@
 from django.shortcuts import get_object_or_404, redirect, render
-from .models import Post, Comment, Category
+from .models import Post, Comment, Category, Tag
 from mainapp.forms import PostForm, CommentForm
+from django.contrib import messages
 # Create your views here.
 def main(request):
     post = Post.objects.all()
@@ -15,6 +16,8 @@ def board_post(request):
             c = form.save(commit=False) #db에 당장 저장x
             c.user = request.user
             c.save()
+            c.Tag.add(*c.extract_tag_list())  # 태그 추가
+            messages.success(request, '포스팅을 저장했습니다.')
             return redirect('board_detail', pk = c.pk)
     else: #GET요청 웹 브라우저에서 페이지 접속
         form = PostForm()
@@ -80,5 +83,18 @@ def category_page(request, slug):
             'post_list': Post.objects.filter(category=category),
             'categories': Category.objects.all(),
             'category': category
+        }
+    )
+
+def tag_page(request,name):
+    tag = Tag.objects.get(name=name)
+
+    return render(
+        request,
+        'tag_page.html',
+        {
+            'post_list': Post.objects.filter(Tag=tag),
+            'tags': Tag.objects.all(),
+            'tag': tag
         }
     )

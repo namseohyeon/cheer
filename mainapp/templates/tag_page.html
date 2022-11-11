@@ -1,0 +1,6 @@
+<h1>{% if tag %}<span class="badge bg-secondary float-end">{{ tag }}</span>{% endif %}</h1>
+{% for p in post_list %}
+{{ p.title }}<br>
+{{ p.content }}<br>
+<img src="{{ p.img.url }}" width="300px">
+{% endfor %}

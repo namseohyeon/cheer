@@ -1,6 +1,9 @@
 {{ post.title }}<br>
 {{ post.category }}<br>
 {{ post.content }}<br>
+{% for tag in post.Tag.all %}
+  <a href="{% url 'tag_page' tag %}"> {{ tag }}</a>
+{% endfor %}
 <img src="{{ post.img.url }}" width="300"><br>
 {% if post.file %}
 <a href="{{ post.file.url }}" download>
