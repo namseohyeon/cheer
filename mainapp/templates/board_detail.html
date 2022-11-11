@@ -10,7 +10,12 @@
 </a>
 {% endif %} 
 
-
+<h2>스크랩 ({{ post.scrap.all.count }})</h2>
+{% if user in post.scrap.all %}
+    <a href="{% url 'scrap' pk=post.pk %}">스크랩삭제</a>
+{% else %}
+    <a href="{% url 'scrap' pk=post.pk %}">스크랩하기</a>
+{% endif %}
 
 
 {% if user.is_authenticated %}

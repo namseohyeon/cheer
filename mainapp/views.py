@@ -55,3 +55,17 @@ def comment_delete(request, pk):
     p = get_object_or_404(Post, pk=c.post.pk)
     c.delete()
     return redirect('board_detail', pk=p.pk)
+
+def scrap(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    user = request.user
+    if user in post.scrap.all():
+        post.scrap.remove(user)
+    else:
+        post.scrap.add(user)
+    return redirect('board_detail', pk)
+
+def scrap_list(request):
+    user = request.user
+    return render(request, 'mypage.html', {'user':user})
+    
