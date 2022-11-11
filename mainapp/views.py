@@ -2,6 +2,7 @@ from django.shortcuts import get_object_or_404, redirect, render
 from .models import Post, Comment, Category, Tag
 from mainapp.forms import PostForm, CommentForm
 from django.contrib import messages
+from django.db.models import Q
 # Create your views here.
 def main(request):
     post = Post.objects.all()
@@ -98,3 +99,23 @@ def tag_page(request,name):
             'tag': tag
         }
     )
+
+def search(request):
+    if request.method == 'POST':
+            search = request.POST['search']        
+            post = Post.objects.filter(
+                Q(content__contains=search)| 
+                Q(category__name__contains=search)| 
+                Q(Tag__name__contains=search)| 
+                Q(title__contains=search)
+            ).distinct()
+            # content= Post.objects.filter(content__contains=search)
+            # category = Post.objects.filter(category__name__contains=search)
+            # tag = Post.objects.filter(Tag__name__contains=search)
+            # c = Category.objects.filter(name__contains=search)
+            # t = Tag.objects.filter(name__contains = search)
+            # return render(request, 'search.html', {'search': search, 'title':title, 'content':content, 'category':category, 'tag':tag})
+            return render(request, 'search.html', {'post':post, 'search':search })
+
+    else:
+        return render(request, 'search.html', {})
