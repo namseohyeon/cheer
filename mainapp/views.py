@@ -1,10 +1,13 @@
 from django.shortcuts import get_object_or_404, redirect, render
-from .models import Post, Comment
+from .models import Post, Comment, Category, Tag
 from mainapp.forms import PostForm, CommentForm
+from django.contrib import messages
+from django.db.models import Q
 # Create your views here.
 def main(request):
     post = Post.objects.all()
-    return render(request, 'main.html',{'post':post})
+    category = Category.objects.all()
+    return render(request, 'main.html',{'post':post,'category':category})
 
 
 def board_post(request):
@@ -14,6 +17,8 @@ def board_post(request):
             c = form.save(commit=False) #db에 당장 저장x
             c.user = request.user
             c.save()
+            c.Tag.add(*c.extract_tag_list())  # 태그 추가
+            messages.success(request, '포스팅을 저장했습니다.')
             return redirect('board_detail', pk = c.pk)
     else: #GET요청 웹 브라우저에서 페이지 접속
         form = PostForm()
@@ -69,3 +74,48 @@ def scrap_list(request):
     user = request.user
     return render(request, 'mypage.html', {'user':user})
     
+def category_page(request, slug):
+    category = Category.objects.get(slug=slug)
+
+    return render(
+        request,
+        'cateogory_page.html',
+        {
+            'post_list': Post.objects.filter(category=category),
+            'categories': Category.objects.all(),
+            'category': category
+        }
+    )
+
+def tag_page(request,name):
+    tag = Tag.objects.get(name=name)
+
+    return render(
+        request,
+        'tag_page.html',
+        {
+            'post_list': Post.objects.filter(Tag=tag),
+            'tags': Tag.objects.all(),
+            'tag': tag
+        }
+    )
+
+def search(request):
+    if request.method == 'POST':
+            search = request.POST['search']        
+            post = Post.objects.filter(
+                Q(content__contains=search)| 
+                Q(category__name__contains=search)| 
+                Q(Tag__name__contains=search)| 
+                Q(title__contains=search)
+            ).distinct()
+            # content= Post.objects.filter(content__contains=search)
+            # category = Post.objects.filter(category__name__contains=search)
+            # tag = Post.objects.filter(Tag__name__contains=search)
+            # c = Category.objects.filter(name__contains=search)
+            # t = Tag.objects.filter(name__contains = search)
+            # return render(request, 'search.html', {'search': search, 'title':title, 'content':content, 'category':category, 'tag':tag})
+            return render(request, 'search.html', {'post':post, 'search':search })
+
+    else:
+        return render(request, 'search.html', {})

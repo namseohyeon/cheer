@@ -1,3 +1,11 @@
+<form method="POST" action="{% url 'search' %}">
+  {% csrf_token %}        
+  <input type="search" placeholder="Search" name="search">
+  <button type="submit"> Search </button>
+</form>
+{% for c in category %}
+  <a href="{{ c.get_absolute_url }}">{{c}}<br>
+{% endfor %}<br><br><br>
 
 {% if user.is_authenticated %}
   <span>{{ user.name }}님 환영합니다 *^^*</span>
@@ -25,8 +33,15 @@
         <a href="{% url 'board_detail' pk=p.pk %}">
         {{ p.title }}<br>
         {{ p.content }}<br>
+        {{ p.category }}<br>
+        {% for tag in p.Tag.iterator %}
+          {{ tag }}
+        {% endfor %}
         <img src="{{ p.img.url }}" width="300"><br>
         {{ p.date }}
         </a>
+        <br>
+        <br>
+        <br>
     </div>
 {% endfor %}
