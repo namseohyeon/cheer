@@ -2,6 +2,12 @@ from django.db import models
 from account.models import User
 
 # Create your models here.
+class Tag(models.Model):
+    name=models.CharField(max_length=10)
+
+    def __str__(self) : 
+        return self.name
+
 class Category(models.Model):
     name = models.CharField(max_length=50, unique=True)
     slug = models.SlugField(max_length=200, unique=True, allow_unicode=True)
@@ -18,7 +24,7 @@ class Category(models.Model):
 class Post(models.Model):
     title = models.CharField(max_length=30)
     content = models.TextField()
-    Tag = models.IntegerField(2)
+    Tag = models.ManyToManyField(Tag,blank=True)
     img = models.ImageField(blank=True, null=True, upload_to='cheer_photo/%y/%m/%d/')
     file = models.FileField(blank=True, null=True, upload_to='cheer_file/%y/%m/%d/')
     date = models.DateTimeField(auto_now_add=True)
