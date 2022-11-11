@@ -1,10 +1,11 @@
 from django.shortcuts import get_object_or_404, redirect, render
-from .models import Post, Comment
+from .models import Post, Comment, Category
 from mainapp.forms import PostForm, CommentForm
 # Create your views here.
 def main(request):
     post = Post.objects.all()
-    return render(request, 'main.html',{'post':post})
+    category = Category.objects.all()
+    return render(request, 'main.html',{'post':post,'category':category})
 
 
 def board_post(request):
@@ -69,3 +70,15 @@ def scrap_list(request):
     user = request.user
     return render(request, 'mypage.html', {'user':user})
     
+def category_page(request, slug):
+    category = Category.objects.get(slug=slug)
+
+    return render(
+        request,
+        'cateogory_page.html',
+        {
+            'post_list': Post.objects.filter(category=category),
+            'categories': Category.objects.all(),
+            'category': category
+        }
+    )

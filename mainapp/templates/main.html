@@ -1,4 +1,6 @@
-
+{% for c in category %}
+  <a href="{{ c.get_absolute_url }}">{{c}}<br>
+{% endfor %}<br>
 {% if user.is_authenticated %}
   <span>{{ user.name }}님 환영합니다 *^^*</span>
   <a class="dropdown-item" href="{% url 'logout' %}" data-toggle="modal" data-target="#logoutModal">
@@ -25,6 +27,7 @@
         <a href="{% url 'board_detail' pk=p.pk %}">
         {{ p.title }}<br>
         {{ p.content }}<br>
+        {{ p.category }}<br>
         <img src="{{ p.img.url }}" width="300"><br>
         {{ p.date }}
         </a>
