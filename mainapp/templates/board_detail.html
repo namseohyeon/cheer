@@ -13,21 +13,24 @@
 
 
 
-
-
-<!--create-->
 {% if user.is_authenticated %}
-  <form action="{% url 'comments_create' pk=post.pk %}" method="POST">
+  <form action="{% url 'comment_create' pk=post.pk %}" method="POST">
     {% csrf_token %}
     {{ form }}
     <input type="submit">
     <hr>
     <h4>댓글 ({{ post.comment_set.count }})</h4>
-    
+
     {% for c in post.comment_set.all %}
-        <p>작성자: {{ c.user }} </p>
+        <p>작성자: {{ c.user.name }} </p>
         <p>{{ c.content }}</p>
-        <p>{{ c.created_at }}</p>
+        {% if c.created_at != c.modified_at %}
+           <p>{{ c.modified_at }}</p> 
+        {% else %} 
+           <p>{{ c.created_at }}</p>
+        {% endif %}
+        <a href="{% url 'comment_update' pk=c.pk %}">수정</a>
+        <a href="{% url 'comment_delete' pk=c.pk %}">삭제</a>
         <hr>
     {% endfor %}
   </form>

@@ -26,7 +26,7 @@ def board_detail(request, pk):
     # reform = ReCommentForm()
     return render(request, 'board_detail.html', {'post':p, 'form':form})
 
-def comments_create(request, pk):
+def comment_create(request, pk):
     if request.user.is_authenticated:
         post = get_object_or_404(Post, pk=pk)
         comment_form = CommentForm(request.POST)
@@ -36,3 +36,22 @@ def comments_create(request, pk):
             comment.user = request.user
             comment.save()
         return redirect('board_detail', pk)
+
+def comment_update(request, pk):
+    c = get_object_or_404(Comment,pk=pk) 
+    p = get_object_or_404(Post,pk=c.post.pk)
+    if(request.method == "POST"):
+        form = CommentForm(request.POST, instance=c)
+        if(form.is_valid()):
+            c = form.save(commit=False)
+            c.save()
+        return redirect('board_detail', pk=p.pk)
+    else:
+        form = CommentForm(instance=c) 
+        return render(request, 'board_post.html', {'form':form})
+
+def comment_delete(request, pk):
+    c = get_object_or_404(Comment,pk=pk)
+    p = get_object_or_404(Post, pk=c.post.pk)
+    c.delete()
+    return redirect('board_detail', pk=p.pk)
