@@ -1,0 +1,11 @@
+{% if user.is_authenticated %}
+  <span>{{ user.name }}님 환영합니다 *^^*</span>
+  <a class="dropdown-item" href="{% url 'logout' %}" data-toggle="modal" data-target="#logoutModal">
+    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+    Logout</a>
+    
+{% else %}
+  <span><a class="dropdown-item" href="{% url 'login' %}">
+    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+    로그인하세요</a></span>
+{% endif %}
