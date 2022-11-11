@@ -1,9 +1,25 @@
+
 {% if user.is_authenticated %}
-  <span>{{ user.email }}</span>
+  <span>{{ user.name }}님 환영합니다 *^^*</span>
+  <a class="dropdown-item" href="{% url 'logout' %}" data-toggle="modal" data-target="#logoutModal">
+    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+    Logout</a>
+    <div class="btn_contain">
+      <div class="newbtn">
+        <a href="{% url 'board_post' %}">+ 글쓰기</a>
+      </div>
+    </div>
 {% else %}
-  <span>로그인</span>
+  <span><a class="dropdown-item" href="{% url 'login' %}">
+    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+    로그인</a></span>
+  <span><a class="dropdown-item" href="{% url 'signup' %}">
+    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+    회원가입</a></span>
 {% endif %}
 
+<a href="{% url 'mypage' %}">마이페이지</a>
+<br><br>
 {% for p in post %}
     <div>
         <a href="{% url 'board_detail' pk=p.pk %}">
@@ -14,19 +30,3 @@
         </a>
     </div>
 {% endfor %}
-
-<div class="btn_contain">
-    <div class="newbtn">
-      <a href="{% url 'board_post' %}">+ 글쓰기</a>
-    </div>
-  </div>
-
-{% if user.is_authenticated %}
-  <a class="dropdown-item" href="{% url 'logout' %}" data-toggle="modal" data-target="#logoutModal">
-  <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-  Logout</a>
-{% else %}
-  <a class="dropdown-item" href="{% url 'login' %}">
-  <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-  Login</a>
-{% endif %}
