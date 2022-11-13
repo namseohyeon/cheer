@@ -68,4 +68,6 @@ def scrap(request, pk):
 def scrap_list(request):
     user = request.user
     return render(request, 'mypage.html', {'user':user})
-    
+
+def landing(request):
+    return render(request, 'landing.html')
