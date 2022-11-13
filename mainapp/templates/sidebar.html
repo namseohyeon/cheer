@@ -1,0 +1,14 @@
+
+<!--title/name -->
+<div>
+    <h4 class="text-center" id="sidebar_title"><br>sogong<br>sugong</h4>
+    <h6 class="text-center" id="sidebar_name"><br>권민정<br>남서현<br>이동희<br>한진경<br></h6>
+</div>
+<br><br>
+
+<h5 class="text-center" id="category_title">Category:</h5>
+<div class="row">
+        {% for c in category %}
+        <h4>{{c.get_absolute_url}}{{c}}</h4>
+        {% endfor %}
+</div>

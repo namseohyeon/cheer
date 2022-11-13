@@ -29,6 +29,7 @@ class CustomUserManager(BaseUserManager):
         user.save(using=self._db)
         return user
 
+
 class User(AbstractBaseUser):
     email = models.EmailField(max_length=30, null=False, unique=True)
     name = models.CharField(max_length=15, null=False)
@@ -51,3 +52,5 @@ class User(AbstractBaseUser):
 
     def is_staff(self):
        return self.is_admin
+
+

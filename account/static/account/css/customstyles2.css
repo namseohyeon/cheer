@@ -1,0 +1,22 @@
+body {background-color: #000}
+
+
+.btn-primary {
+        color: white;
+        background-color: #852845;
+        border-color: #852845;
+        }
+.btn-primary:hover {
+        color: white;
+        background-color: #852845;
+        border-color: white
+        }
+
+a:link{
+        color:#852845
+        }
+
+#title{
+        color:#808080;
+        font-weight:bold
+        }

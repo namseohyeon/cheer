@@ -1,0 +1,43 @@
+/*전체*/
+body {background-color: #000}
+
+
+.btn-primary {
+        color: white;
+        background-color: #852845;
+        border-color: #852845;
+        }
+.btn-primary:hover {
+        color: white;
+        background-color: #852845;
+        border-color: white
+        }
+
+a:link{
+        color:#852845
+        }
+
+#title{
+        color:#808080;
+        font-weight:bold
+        }
+
+/*sidebar*/
+#sidebar_title{
+        color:white;
+        font-weight:bold
+        }
+#sidebar_name{
+        color:white;
+        font-size:small
+        }
+#category_title{
+        color:white;
+        font-weight:bold
+        }
+
+/*post등록*/
+#board_post{
+    color:white;
+    font-size:1px
+}

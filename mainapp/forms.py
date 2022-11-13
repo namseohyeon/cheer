@@ -6,7 +6,8 @@ class PostForm(forms.ModelForm):
         model = Post
         fields = ('title', 'content','img','file','category','caption')
         widgets = {
-            "caption": forms.Textarea
+            "caption": forms.Textarea,
+
         }
 
 
