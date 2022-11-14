@@ -1,0 +1,18 @@
+{% if post %}
+<h1> seach: {{ search }} </h1>  
+{% for p in post %}
+     
+    {{ p.title }}<br>
+    {{ p.content }}<br>
+    {{ p.category }}<br>
+    <img src="{{ p.img.url }}" width="300"><br>
+    {% for tag in p.Tag.iterator %}
+        {{ tag }}<br>
+    {% endfor %}
+{% endfor %}
+<br>
+{% else %}        
+<h1> {{ search }}라는 게시물은 존재하지 않습니다. </h1>
+{% endif %}
+
+<!-- 'title':title, 'content':content, 'category':category, 'tag':tag -->

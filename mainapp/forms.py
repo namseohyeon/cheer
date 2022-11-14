@@ -4,7 +4,10 @@ from .models import Post, Comment
 class PostForm(forms.ModelForm):
     class Meta:
         model = Post
-        fields = ('title', 'content', 'Tag','img','file','categoty')
+        fields = ('title', 'content','img','file','category','caption')
+        widgets = {
+            "caption": forms.Textarea
+        }
 
 
 class CommentForm(forms.ModelForm):
