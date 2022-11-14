@@ -13,6 +13,8 @@
 <body>
 <!-- navbar.html 나중 추가 -->
 
+    <!-- flow-container 추가-->
+
     <div class="container">
     <div class="row">
         <div class="col md-4 col-lg-3">
@@ -23,15 +25,27 @@
             <div id="post-area">
                 <!-- Post header -->
                 <header class="mb-4">
-                    {% block head_title %}
-                        {{ post.title }}<br>
+                    <br>
+                    <div id="detail_title">
+                        {% block head_title %}
+                        {{ post.title }}
                     {% endblock %}
-                    <!-- 투표하기 버튼 나중 추가 -->
-
-                    <!-- Post meta content-->
-                    <div class="text-muted fst-italic mb-2">
-                        Posted on {{post.created_at | date:"Y-m-d h:m:s"}} by {{post.author}}
                     </div>
+                    <!-- 스크랩 -->
+                    <h2>스크랩 ({{ post.scrap.all.count }})
+                        {% if user in post.scrap.all %}
+                            <a href="{% url 'scrap' pk=post.pk %}">스크랩 삭제</a>
+                        {% else %}
+                            <a href="{% url 'scrap' pk=post.pk %}">스크랩하기</a>
+                        {% endif %}
+                    </h2>
+
+                    <!--tag -->
+                    {% for tag in post.Tag.all %}
+                        <a href="{% url 'tag_page' tag %}"> #{{ tag }}</a>
+                    {% endfor %}
+                    <!-- 투표하기 버튼 나중 추가 -->
+                    <br>
                     <!-- Post categories -->
                     {% if post.category %}
                     <a class="badge bg-secondary text-decoration-none link-light" href="{{post.category.get_absolute_url}}">
@@ -40,30 +54,32 @@
                     {% else %}
                     <a class="badge bg-secondary text-decoration-none  link-light" href="/blog/category/no_category/">미분류<br></a>
                     {% endif %}
+
+                    <!-- Post meta content
+                    <div class="text-muted fst-italic mb-2">
+                        Posted on {{post.created_at | date:"Y-m-d h:m:s"}} by {{post.author}}
+                    </div>
+                    -->
                 </header>
 
+                <img src="{{ post.img.url }}" width="300"><br><br>
 
                 {{ post.content }}<br>
-                {% for tag in post.Tag.all %}
-                    <a href="{% url 'tag_page' tag %}"> {{ tag }}</a>
-                {% endfor %}
-                <img src="{{ post.img.url }}" width="300"><br>
+
                 {% if post.file %}
                 <a href="{{ post.file.url }}" download>
-                    <div class="downbox">
-                        <span class="chumboo">첨부파일</span>
+                    <div class="downbox" id="downbox">
+                        <br>
+                        <span class="chumboo">프로젝트 다운로드</span>
                         <!-- <span class="filename">vkdlf.jpeg</span> -->
                         <span class="filename">{{ post.get_file_name }}</span>
                     </div>
                 </a>
                 {% endif %}
 
-                <h2>스크랩 ({{ post.scrap.all.count }})</h2>
-                {% if user in post.scrap.all %}
-                <a href="{% url 'scrap' pk=post.pk %}">스크랩삭제</a>
-                {% else %}
-                <a href="{% url 'scrap' pk=post.pk %}">스크랩하기</a>
-                {% endif %}
+                <br>
+
+
 
             </div>
 

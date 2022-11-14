@@ -1,5 +1,8 @@
 /*전체*/
-body {background-color: #000}
+body {
+    background-color: #000;
+    color:white
+}
 
 
 
@@ -15,8 +18,16 @@ body {background-color: #000}
         }
 
 a:link{
-
         color:#852845
+        }
+a:visited{
+        color:#852840
+        }
+a:active{
+        color:#852840
+        }
+a:hover{
+        color:#852840
         }
 
 #title{
@@ -42,4 +53,16 @@ a:link{
 #board_post{
     color:white;
     font-size:1px
+}
+
+/*post_detail*/
+#detail_title{
+        font-weight:800
+}
+#detail_title{
+        font-size:30px
+}
+
+h2{
+    font-size:1rem
 }

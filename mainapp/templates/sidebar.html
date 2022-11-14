@@ -6,9 +6,10 @@
 </div>
 <br><br>
 
-<h5 class="text-center" id="category_title">Category:</h5>
-<div class="row">
-        {% for c in category %}
-        <h4>{{c.get_absolute_url}}{{c}}</h4>
-        {% endfor %}
-</div>
+<h5 class="text-center" id="category_title">Category:
+    <div class="row">
+            {% for c in category %}
+            <h4>{{c.get_absolute_url}}{{c}}</h4>
+            {% endfor %}
+    </div>
+</h5>
