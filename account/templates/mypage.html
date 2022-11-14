@@ -15,11 +15,53 @@
 
     {% if user.is_authenticated %}
 
-      <span>{{ user.name | upper }}</span>
+
 
       <a class="dropdown-item" href="{% url 'logout' %}" data-toggle="modal" data-target="#logoutModal">
         <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
         Logout</a>
+    <br>
+    <div class="container">
+        <div class="row">
+        <div class="col align-self-center">
+            <div class="card mb-6" id="signup_card">
+            <br>
+            <div class="container">
+                <div class="card-body">
+                    <h4 class="text-center" id="title">
+                        {{ user.name | upper }}
+                    </h4>
+                    <br>
+                    <form method="post">
+                            {% csrf_token %}
+                                <br>
+                                <div class="mb-3">
+                                    Name{{ form.name }}
+                                </div>
+                                <div class="mb-3">
+                                    Email Address{{ form.email }}
+                                </div>
+                                <div class="mb-3">
+                                    Student Number{{ form.studentNo }}
+                                </div>
+                                <div class="mb-3">
+                                    Password {{ form.password1 }}
+                                </div>
+                                <div class="mb-3">
+                                    Password Confirm {{ form.password2 }}
+                                </div>
+
+                                <br><br>
+
+                    </form>
+                </div>
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+
+        <!--form method부터 지우고 이게 들어가야 -->
         {% for p in user.scrap_name.all %}
             <a href="{% url 'board_detail' pk=p.pk %}">
             <div>{{ p.title }}</div>

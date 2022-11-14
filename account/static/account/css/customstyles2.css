@@ -61,6 +61,19 @@ span{
         color: white;
 }
 
+.dropdown-item {
+    display: block;
+    width: 100;
+    padding: 0.25rem 1.5rem;
+    clear: both;
+    font-weight: 700;
+    color: #212529;
+    text-align: inherit;
+    white-space: nowrap;
+    background-color: #852845;
+    border: 0;
+}
+
 /*login.html*/
 #id_username {
     display: block;
@@ -93,3 +106,4 @@ span{
     border-radius: 0.25rem;
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
+
