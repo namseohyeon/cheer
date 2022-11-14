@@ -119,3 +119,7 @@ def search(request):
 
     else:
         return render(request, 'search.html', {})
+
+def landing(request):
+    return render(request, 'landing.html')
+

@@ -4059,13 +4059,21 @@ textarea.form-control-lg {
 .navbar-nav {
   display: flex;
   flex-direction: column;
+<<<<<<< HEAD
   padding-left: 0;
+=======
+  padding-left: 20;
+>>>>>>> 218aeb906ef5b6b414f84badf47b59cd0e62db1d
   margin-bottom: 0;
   list-style: none;
 }
 .navbar-nav .nav-link {
   padding-right: 0;
+<<<<<<< HEAD
   padding-left: 0;
+=======
+  padding-left: 20;
+>>>>>>> 218aeb906ef5b6b414f84badf47b59cd0e62db1d
 }
 .navbar-nav .dropdown-menu {
   position: static;

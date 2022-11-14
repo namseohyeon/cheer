@@ -9,6 +9,7 @@ class signupForm(UserCreationForm):
         fields = ['email', 'name', 'studentNo', 'password1', "password2"]
         widgets = {
             'email': forms.EmailInput(attrs={
+                'id':'username',
                 'placeholder': '학교 인증된 이메일을 사용해주세요',
                 'class': 'form-control',
                 }),
@@ -21,11 +22,13 @@ class signupForm(UserCreationForm):
                 'class': 'form-control'
                 }),
             'password1': forms.PasswordInput(attrs={
+                'id':'password1',
                 'placeholder': '영문, 숫자, 특수문자로 구성된 6~20자 비밀번호를 입력해주세요',
                 'class': 'form-control',
                 'required': 'required'
                 }),
             'password2': forms.PasswordInput(attrs={
+                'id':'password2',
                 'placeholder': '비밀번호 인증을 위해 재입력해주세요',
                 'class': 'form-control',
                 'required': 'required'

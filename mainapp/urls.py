@@ -15,5 +15,7 @@ urlpatterns = [
     path('board/search/', views.search, name='search'),
     path('scrap/<int:pk>/', views.scrap, name="scrap"),
     # path('scrap_delete/<int:pk>/', views.scrap_delete, name="scrap_delete"),
+
+    path('landing/', views.landing),
     
 ]
