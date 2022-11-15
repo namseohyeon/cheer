@@ -16,6 +16,9 @@
       <div class="newbtn">
         <a href="{% url 'board_post' %}">+ 글쓰기</a>
       </div>
+      <div class="newbtn">
+        <a href="{% url 'vote' %}">투표하기</a>
+      </div>
     </div>
 {% else %}
   <span><a class="dropdown-item" href="{% url 'login' %}">

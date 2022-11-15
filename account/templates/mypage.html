@@ -10,6 +10,11 @@
         </a>
         <br>
     {% endfor %}
+    <br>
+
+    <h3>투표내역</h3>
+    제목 {{ user.vote.title }}<br>
+    내용 {{ user.vote.content }}
 
     
 {% else %}
