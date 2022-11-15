@@ -38,7 +38,7 @@ class Post(models.Model):
     
 
     scrap = models.ManyToManyField(User, blank=True, related_name='scrap_name')
-    
+    count = models.IntegerField(default=0)
     def __str__(self):
         return self.title
 

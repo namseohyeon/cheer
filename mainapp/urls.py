@@ -18,4 +18,7 @@ urlpatterns = [
 
     path('landing/', views.landing),
     
+    path('vote/', views.vote, name="vote"),
+    path('vote_to/', views.vote_to, name="vote_to"),
+    path('vote_result/', views.vote_result, name="vote_result")
 ]
