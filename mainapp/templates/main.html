@@ -4,7 +4,7 @@
   <button type="submit"> Search </button>
 </form>
 {% for c in category %}
-  <a href="{{ c.get_absolute_url }}">{{c}}<br>
+<a href="{{ c.get_absolute_url }}">{{c}}<br></a>
 {% endfor %}<br><br><br>
 
 {% if user.is_authenticated %}
@@ -15,6 +15,9 @@
     <div class="btn_contain">
       <div class="newbtn">
         <a href="{% url 'board_post' %}">+ 글쓰기</a>
+      </div>
+      <div class="newbtn">
+        <a href="{% url 'vote' %}">투표하기</a>
       </div>
     </div>
 {% else %}

@@ -31,14 +31,21 @@
                         {{ post.title }}
                     {% endblock %}
                     </div>
-                    <!-- 스크랩 -->
-                    <h2>스크랩 ({{ post.scrap.all.count }})
+                    <!-- 스크랩 아이콘-->
+                    <button type="button" class="btn btn-primary">
+                    스크랩 <span class="badge text-bg-secondary">({{ post.scrap.all.count }})</span>
+
+                    </button>
+
+                    <!-- 이건 버튼이 아니어도 될듯. 고민-->
+                    <button type="button" class="btn btn-primary">
                         {% if user in post.scrap.all %}
                             <a href="{% url 'scrap' pk=post.pk %}">스크랩 삭제</a>
                         {% else %}
                             <a href="{% url 'scrap' pk=post.pk %}">스크랩하기</a>
                         {% endif %}
-                    </h2>
+                    </button>
+
 
                     <!--tag -->
                     {% for tag in post.Tag.all %}
@@ -64,7 +71,7 @@
 
                 <img src="{{ post.img.url }}" width="300"><br><br>
 
-                {{ post.content }}<br>
+                {{ post.content|linebreaksbr}}<br>
 
                 {% if post.file %}
                 <a href="{{ post.file.url }}" download>
@@ -84,6 +91,7 @@
             </div>
 
             <!-- Comments section -->
+
             {% if user.is_authenticated %}
               <form action="{% url 'comment_create' pk=post.pk %}" method="POST">
                 {% csrf_token %}

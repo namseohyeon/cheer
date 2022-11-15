@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
+
 # Create your models here.
 class CustomUserManager(BaseUserManager):
     def create_user(self, email, name, studentNo, password=None):
@@ -35,6 +36,7 @@ class User(AbstractBaseUser):
     name = models.CharField(max_length=15, null=False)
     studentNo = models.CharField(max_length=8, null=False)
     is_admin = models.BooleanField(default=False)
+    vote = models.OneToOneField('mainapp.Post', null=True, on_delete=models.CASCADE, related_name='vote')
 
     objects = CustomUserManager()
 

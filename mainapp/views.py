@@ -1,5 +1,6 @@
 from django.shortcuts import get_object_or_404, redirect, render
 from .models import Post, Comment, Category, Tag
+from account.models import User
 from mainapp.forms import PostForm, CommentForm
 from django.contrib import messages
 from django.db.models import Q
@@ -31,17 +32,19 @@ def board_detail(request, pk):
     # reform = ReCommentForm()
     return render(request, 'board_detail.html', {'post':p, 'form':form})
 
+# 댓글 생성
 def comment_create(request, pk):
     if request.user.is_authenticated:
         post = get_object_or_404(Post, pk=pk)
         comment_form = CommentForm(request.POST)
         if comment_form.is_valid():
-            comment = comment_form.save(commit=False)
+            comment = comment_form.save(commit=False) #db에 당장 저장x
             comment.post = post
             comment.user = request.user
             comment.save()
         return redirect('board_detail', pk)
 
+# 댓글 수정
 def comment_update(request, pk):
     c = get_object_or_404(Comment,pk=pk) 
     p = get_object_or_404(Post,pk=c.post.pk)
@@ -55,6 +58,7 @@ def comment_update(request, pk):
         form = CommentForm(instance=c) 
         return render(request, 'board_post.html', {'form':form})
 
+# 댓글 삭제
 def comment_delete(request, pk):
     c = get_object_or_404(Comment,pk=pk)
     p = get_object_or_404(Post, pk=c.post.pk)
@@ -62,12 +66,12 @@ def comment_delete(request, pk):
     return redirect('board_detail', pk=p.pk)
 
 def scrap(request, pk):
-    post = get_object_or_404(Post, pk=pk)
+    post = get_object_or_404(Post, pk=pk) # pk값에 해당하는 게시물 받아옴
     user = request.user
-    if user in post.scrap.all():
-        post.scrap.remove(user)
-    else:
-        post.scrap.add(user)
+    if user in post.scrap.all(): # 요청 유저가 이미 스크랩을 했으면
+        post.scrap.remove(user) # 유저 삭제
+    else: # 스크랩을 아직 안한 유저라면
+        post.scrap.add(user) # 스크랩 목록에 요청 유저 추가
     return redirect('board_detail', pk)
 
 def scrap_list(request):
@@ -123,3 +127,23 @@ def search(request):
 def landing(request):
     return render(request, 'landing.html')
 
+def vote(request):
+    post = Post.objects.all()
+    return render(request, 'vote.html', {'post':post})
+
+def vote_to(request):
+    user = request.user
+    if user.vote != None: # 투표내역이 있으면
+        messages.error(request, '이미 투표하였습니다.')
+    else: 
+        selection = request.POST['choice'] # choice라는 이름으로 보낸 POST 요청을 selection이라는 변수에 담음.
+        choice = get_object_or_404(Post, id=selection) # id=selection인 (POST 요청을 보낸) Post를 받아옴 
+        choice.count += 1 # 해당 게시물의 count +1
+        choice.save()
+        user.vote = choice # 요청 유저의 vote 내역에 저장
+        user.save()
+    return redirect('vote')
+
+def vote_result(request):
+    post = Post.objects.all().order_by('-count')
+    return render(request, 'vote_result.html', {'post':post})

@@ -11,15 +11,26 @@
   <script src="https://kit.fontawesome.com/3385a22710.js" crossorigin="anonymous"></script>
 </head>
 <body>
+    <style css>
+        h5{
+            color:#808080;
+            font-weight:bold;
+        }
 
+        .dropdown-item{
 
-    {% if user.is_authenticated %}
+        }
 
+        h6{
+            font-size: 0.9rem;
+            color:#808080;
+        }
 
+        #scrap_title{
+            font-size: 0.9rem;
+        }
 
-      <a class="dropdown-item" href="{% url 'logout' %}" data-toggle="modal" data-target="#logoutModal">
-        <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-        Logout</a>
+    </style>
     <br>
     <div class="container">
         <div class="row">
@@ -29,31 +40,35 @@
             <div class="container">
                 <div class="card-body">
                     <h4 class="text-center" id="title">
-                        {{ user.name | upper }}
+                        {{ user.name | upper }}<br>
                     </h4>
+                    {% if user.is_authenticated %}
+                      <a class="dropdown-item" href="{% url 'logout' %}" data-toggle="modal" data-target="#logoutModal">
+                        <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                        Logout</a>
+
+                        {% for p in user.scrap_name.all %}
+                            <br><br>
+                            <h5>스크랩 목록</h5>
+                            <a href="{% url 'board_detail' pk=p.pk %}">
+                                <!--title 앞에 아이콘아니면 -, . 이런거-->
+                                <div id="scrap_title">{{ p.title }}</div>
+                            </a>
+                            <br>
+                        {% endfor %}
+                        <br>
+
+                        <h5>투표내역</h5>
+                        <h6>제목: {{ user.vote.title }}<br></h6>
+                        <h6>내용: {{ user.vote.content }}<br></h6>
+                    {% else %}
+
+                      <span><a class="dropdown-item" href="{% url 'login' %}">
+                        <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                        로그인하세요</a></span>
+                    {% endif %}
                     <br>
-                    <form method="post">
-                            {% csrf_token %}
-                                <br>
-                                <div class="mb-3">
-                                    Name{{ form.name }}
-                                </div>
-                                <div class="mb-3">
-                                    Email Address{{ form.email }}
-                                </div>
-                                <div class="mb-3">
-                                    Student Number{{ form.studentNo }}
-                                </div>
-                                <div class="mb-3">
-                                    Password {{ form.password1 }}
-                                </div>
-                                <div class="mb-3">
-                                    Password Confirm {{ form.password2 }}
-                                </div>
 
-                                <br><br>
-
-                    </form>
                 </div>
             </div>
             </div>
@@ -62,20 +77,10 @@
     </div>
 
         <!--form method부터 지우고 이게 들어가야 -->
-        {% for p in user.scrap_name.all %}
-            <a href="{% url 'board_detail' pk=p.pk %}">
-            <div>{{ p.title }}</div>
-            <div><img src="{{ p.img.url }}" width="300"></div>
-            </a>
-            <br>
-        {% endfor %}
 
 
-    {% else %}
-      <span><a class="dropdown-item" href="{% url 'login' %}">
-        <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-        로그인하세요</a></span>
-    {% endif %}
+
+
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>

@@ -1,0 +1,20 @@
+{% if user.is_authenticated %}
+        <form action="{% url 'vote_to' %}" method="POST">
+        {% csrf_token %}
+        {% for p in post %}
+                <a href="{% url 'board_detail' pk=p.pk %}">
+                <input type="radio" name="choice" value="{{ p.id }}"/>
+                {{ p.title }}
+                <img src="{{ p.img.url }}" width="100"></a><br>
+        {% endfor %}
+        
+        {% if user.vote != None %} 
+                <input type="submit" value="투표하기" onclick="alert('투표를 이미 완료하였습니다.')">
+        {% else %}
+                <input type="submit" value="투표하기" onclick="alert('투표를 완료했습니다.')">
+        {% endif %}
+        </form>
+{% else %}
+        <!--alert로 바꾸기-->
+        <a href="{% url 'login' %}">로그인하세요</a>
+{% endif %}
