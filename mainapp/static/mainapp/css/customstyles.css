@@ -1,3 +1,10 @@
+@font-face {
+    font-family: 'JSongMyung-Regular-KO';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/JSongMyung-Regular-KO.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
 /* DSWU CS 배너 */
 .flow-text {
     display: flex;
@@ -27,20 +34,80 @@
 }
 
 body {background-color: #000}
-ul li{  /* navbar */
-    width: 120px;
-    height: 50px;
+
+/* 왼쪽 col */
+.title {    /* 프로젝트 title */
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 5em;
     color: #fff;
 }
-.dropdown-menu {color: #fff;}
-#title-info {border-right: 5px solid #fff;}   /* main 세로 구분선 */
-.title {font-size: 6em; color: #fff;}   /* 프로젝트 title: "CHEER" */
+#title-info {
+    border-right:
+    5px solid #fff;
+    font-family: 'Noto Sans KR', sans-serif;
+}   /* main 세로 구분선 */
 .info {color: #fff;}
+/* 서치바 */
+.searchBar {
+    position: relative;
+    width: 500px;
+    height: 40px;
+    margin: 10px auto;
+    padding: 5px;
+    border: 1px solid #e2e2e2;
+    border-radius: 20px;
+}
+.fa-magnifying-glass {
+    position: absolute;
+    top: 10px;
+    left: 12px;
+}
+.form-control {
+    border-radius: 5px;
+}
+/* 오른쪽 col */
+    /* navbar */
+ul li {
+    width: 120px;
+}
+.nav-link:link {
+    font-family: 'Noto Sans KR', sans-serif;
+    color: white;
+}
+.nav-link:visited {     /* :visited는 :hover보다 먼저 써야 적용됨 */
+    color: white;
+}
+.nav-link:hover {
+    color: #981b45;
+}
+.dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0;
+    background-color: #000;
+    color: #fff;
+}
+.dropdown-item {
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #fff;
+}
+.dropdown-item:hover {
+    font-family: 'Noto Sans KR', sans-serif;
+    background-color: #000;
+    color: #981b45;
+}
+#save_career {
+    color: #fff;
+    text-align: right;
+    padding: 0;
+}
+#cong_happy {
+    color: #fff;
+    text-align: left;
+    padding: 0;
+}
 
 
 /* main */
-main {position: relative;}
-
 .card {margin: 0.5rem;}
 .bd-placeholder-img {
     font-size: 1.125rem;
@@ -52,6 +119,39 @@ main {position: relative;}
 
 @media (min-width: 700px) {
     .bd-placeholder-img-lg {font-size: 3.5rem;}
+}
+
+
+/* 페이지네이션 */
+.pagination {
+    display: flex;
+    justify-content: center;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 1rem;
+    text-align: center;
+}
+.pagination a:hover {
+    background: #981b45;
+    color: #fff;
+}
+.pagination a,
+.pagination .current {
+    color: #fff;
+    border-radius: 50%;
+    padding-top: 4px;
+    display: inline-block;
+    width: 36px;
+    height: 36px;
+    margin: 0 6px;
+}
+.pagination .current {
+    color: #fff;
+}
+
+/* 푸터바 */
+footer {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 0.875rem;
 }
 
 
