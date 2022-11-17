@@ -34,7 +34,7 @@
                 <form method="POST" action="{% url 'search' %}" class="mx-quto input-group mt-5">
                     {% csrf_token %}
                     <mx-auto>
-                        <input name="query" type="text" class="form-control" placeholder="search" aria-label="search" aria-describedby="button-addon2">
+                        <input name="search" type="text" class="form-control" placeholder="search" aria-label="search" aria-describedby="button-addon2">
                     </mx-auto>
                     <button class="btn btn-dark" type="submit">검색</button>
                 </form>
