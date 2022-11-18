@@ -5,7 +5,6 @@ body {
 }
 
 
-
 .btn-primary {
         color: white;
         background-color: #852845;
@@ -82,4 +81,9 @@ a:hover{
 
 h2{
     font-size:1rem
+}
+
+#sidebar-info {
+    border-right: 5px solid #fff;
+
 }

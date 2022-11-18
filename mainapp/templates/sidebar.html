@@ -6,10 +6,12 @@
 </div>
 <br><br>
 
-<h5 class="text-center" id="category_title">Category:
-    <div class="row">
-            {% for c in category %}
-            <h4>{{c.get_absolute_url}}{{c}}</h4>
-            {% endfor %}
-    </div>
+<h5 class="text-center" id="category_title">Category:<br><br>
+    {% if post.category %}
+    <a class="badge bg-secondary text-decoration-none link-light" href="{{post.category.get_absolute_url}}">
+        {{post.category}}<br>
+    </a>
+    {% else %}
+    <a class="badge bg-secondary text-decoration-none  link-light" href="/blog/category/no_category/">미분류<br></a>
+    {% endif %}
 </h5>
