@@ -6,6 +6,9 @@ class PostForm(forms.ModelForm):
         model = Post
         fields = ('title', 'content','img','file','category','caption')
         widgets = {
+            "content":forms.Textarea(attrs={
+                'class': 'form-control', 'rows': '10'
+            }),
             "caption": forms.Textarea,
 
         }
