@@ -1,0 +1,89 @@
+/*전체*/
+body {
+    background-color: #000;
+    color:white
+}
+
+
+.btn-primary {
+        color: white;
+        background-color: #852845;
+        border-color: #852845;
+        }
+.btn-primary:hover {
+        color: white;
+        background-color: #852845;
+        border-color: white
+        }
+
+a:link{
+        color:#852845
+        }
+a:visited{
+        color:white
+        }
+a:active{
+        color:#852840
+        }
+a:hover{
+        color:#852840
+        }
+
+#title{
+        color:#808080;
+        font-weight:bold
+        }
+
+/*sidebar*/
+#sidebar_title{
+        color:white;
+        font-weight:bold
+        }
+#sidebar_name{
+        color:white;
+        font-size:small
+        }
+#category_title{
+        color:white;
+        font-weight:bold
+        }
+
+/*post등록*/
+#board_post{
+    color:white;
+    font-size:1px
+}
+
+
+#id_title {
+    display: block;
+    width: 100%;
+    height: calc(1.5em + 0.75rem + 2px);
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+/*post_detail*/
+#detail_title{
+        font-weight:800
+}
+#detail_title{
+        font-size:30px
+}
+
+h2{
+    font-size:1rem
+}
+
+#sidebar-info {
+    border-right: 5px solid #fff;
+
+}

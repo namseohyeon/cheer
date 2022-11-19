@@ -4,7 +4,7 @@
   <button type="submit"> Search </button>
 </form>
 {% for c in category %}
-  <a href="{{ c.get_absolute_url }}">{{c}}<br>
+<a href="{{ c.get_absolute_url }}">{{c}}<br></a>
 {% endfor %}<br><br><br>
 
 {% if user.is_authenticated %}
