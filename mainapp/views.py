@@ -56,7 +56,7 @@ def comment_update(request, pk):
         return redirect('board_detail', pk=p.pk)
     else:
         form = CommentForm(instance=c) 
-        return render(request, 'board_post.html', {'form':form})
+        return render(request, 'comment_post.html', {'form':form})
 
 # 댓글 삭제
 def comment_delete(request, pk):

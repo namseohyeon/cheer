@@ -156,7 +156,12 @@
                                                 <div class="col-md-11">
                                                     <div class="fw-bold" style="color:#852840">
                                                         {{c.user.name}}
-                                                        <small class="text_muted">{{c.created_at}}</small>
+                                                        <small class="text_muted">
+                                                        {% if c.created_at != c.modified_at %}
+                                                            {{ c.modified_at }}
+                                                         {% else %} 
+                                                            {{ c.created_at }}
+                                                         {% endif %}</small>
                                                         <small class="float-right">
                                                             {% if user == c.user %}
                                                                 <a href="{% url 'comment_update' pk=c.pk %}" style="color:#852840">
