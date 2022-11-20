@@ -21,5 +21,5 @@ urlpatterns = [
     path('vote_result/', views.vote_result, name="vote_result"),
 
     path('landing/', views.landing),
-    path('landing/about/', views.about),
+    path('about/', views.about),
 ]

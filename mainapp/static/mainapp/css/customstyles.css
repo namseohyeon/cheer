@@ -229,15 +229,27 @@ footer {
 }
 
 /* about.html */
-.symbol {
-    position: relative
+.ds_img img {
+    margin-top: 30%;
+    left: 50%;
 }
-
-.logo_image {
-    display: block;
-    margin: auto;
-}
-
-.college {
+.ds_img {
     display: flex; justify-content:center;
+    text-align : center;
+}
+.dsce {
+    color: white;
+}
+.dsce h3 {
+    padding: 50px 0px 20px;
+    font-weight: bold;
+}
+.subtitle {
+    line-height: 300%;
+}
+.content {
+    line-height: 180%;
+}
+.dsce_web a {
+    color: #981b45;
 }
