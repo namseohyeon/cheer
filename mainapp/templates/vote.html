@@ -33,11 +33,11 @@
                 <div class="card-body">
                     <h4 class="text-center" id="title">
                         VOTE<br><br>
+                    </h4>
+                    {% if user.is_authenticated %}
                         <div id="sub_title">
                             <h6 class="text-center">{{ user.name | upper }}님이 생각하는 최고의 프로젝트에 투표해주세요!</h6><br>
                         </div>
-                    </h4>
-                    {% if user.is_authenticated %}
                         <form action="{% url 'vote_to' %}" method="POST">
                         {% csrf_token %}
                         {% for p in post %}
@@ -66,9 +66,8 @@
                         </form>
                     {% else %}
 
-                      <span><a class="dropdown-item" href="{% url 'login' %}">
-                        <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                        로그인하세요</a></span>
+                      <a role="button" class="btn btn-block btn-sm" href="{% url 'login' %}" style="background-color:#852845;color:white">
+                        로그인</a>
                     {% endif %}
                     <br>
 
