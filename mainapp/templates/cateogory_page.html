@@ -1,6 +1,73 @@
-<h1>{% if category %}<span class="badge bg-secondary float-end">{{ category }}</span>{% endif %}</h1>
-{% for p in post_list %}
-{{ p.title }}<br>
-{{ p.content }}<br>
-<img src="{{ p.img.url }}" width="300px">
-{% endfor %}
+<!DOCTYPE html>
+{% load static %}
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CHEER - {% if category %}Category : {{ category|upper }}{% endif %} {% endblock %}</title>
+  <link href="{% static 'account/bootstrap4/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css" media="screen">
+    <link href="{% static 'account/css/customstyles2.css' %}" rel="stylesheet" />
+    <link href="{% static 'account/css/customstyles.css' %}" rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/3385a22710.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+<style css>
+    #category_title{
+        font-size:0.9rem;
+            }
+
+    #category_content{
+        font-size:0.9rem;
+            }
+</style>
+
+    {% include 'flow.html' %}
+    {% include 'navbar.html' %}
+
+    <br>
+    <div class="container">
+        <div class="row">
+        <div class="col align-self-center">
+            <div class="card mb-6" id="signup_card">
+            <br>
+            <div class="container">
+                <div class="card-body">
+                    <h4 class="text-center" id="title">
+                        {% if category %}<span class="badge bg-secondary float-end">{{ category }}</span>{% endif %}
+                    </h4>
+                    <br>
+                    <hr>
+                    <br><br>
+
+                        {% for p in post_list %}
+                            <h6>프로젝트 제목: </h6>
+                            <a id="category_title">{{ p.title }}</a><br><br>
+                            <h6>내용: </h6>
+                            <a id="category_content">{{ p.content |linebreaksbr}}</a><br><br>
+                            <img src="{{ p.img.url }}" width="300px">
+                            <hr><br><br>
+                        {% endfor %}
+                    <br>
+
+                </div>
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+
+
+
+
+    {% include 'footer.html' %}
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+
+</body>
+</html>
+
+

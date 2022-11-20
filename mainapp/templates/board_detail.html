@@ -116,6 +116,7 @@
                 <br>
 
                 <!--tag -->
+                <i class="fas fa-tag"></i>
                 {% for tag in post.Tag.all %}
                     <span class="badge badge-pill badge-light">
                         <a href="{% url 'tag_page' tag %}" style="color:#852840">
@@ -159,7 +160,9 @@
                                                         <small class="text_muted">{{c.created_at}}</small>
                                                         <small class="float-right">
                                                             {% if user == c.user %}
-                                                                <a href="{% url 'comment_update' pk=c.pk %}" style="color:#852840">수정</a>
+                                                                <a href="{% url 'comment_update' pk=c.pk %}" style="color:#852840">
+                                                                    수정
+                                                                </a>
                                                                 <a href="{% url 'comment_delete' pk=c.pk %}" style="color:#852840">삭제</a>
                                                             {% endif %}
                                                         </small>

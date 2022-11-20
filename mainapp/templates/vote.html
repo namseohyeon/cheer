@@ -41,7 +41,7 @@
                         <form action="{% url 'vote_to' %}" method="POST">
                         {% csrf_token %}
                         {% for p in post %}
-                            <div class="card" style="width: 18rem;">
+                            <div class="card border border-danger" style="width: 20rem;">
                                 <div class="card-header">
                                     <input type="radio" name="choice" value="{{ p.id }}"/>
                                     <a href="{% url 'board_detail' pk=p.pk %}">
