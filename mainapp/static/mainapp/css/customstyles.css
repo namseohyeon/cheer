@@ -96,10 +96,70 @@ ul li {
     color: #981b45;
 }
 
+    /* cheer 풀네임 + 졸업생수, 프로젝트 수 표시 */
+.fullname {
+    width: 100%;
+}
+.fullname img {
+    max-width: 100%;
+    height: auto;
+    justify-content: center;
+    text-align: center;
+}
+    /* cheer 풀네임 - animation */
+.fullname img {
+  animation: fadeOut ease 5s;
+  animation-fill-mode: forwards;
+  animation-delay: 2s;
+}
+@keyframes fadeOut {
+  0% {
+    opacity:1;
+  }
+  100% {
+    opacity:0;
+  }
+}
+    /* 졸업생수, 프로젝트 수 - animation */
 
+.howmuch {
+  display: grid;
+  place-items: center;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  width: 100%;
+  transform: translate( -50%, -50%);
+  font-size: 2em;
+  text-align: center;
+  margin-top: 10%;
+}
+
+.howmuch p {
+  width: 22ch;
+  animation: typing 4s steps(22), blink .5s step-end infinite alternate;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid;
+  color: white;
+  text-align: center;
+
+}
+
+@keyframes typing {
+  from {
+    width: 0
+  }
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent
+  }
+}
 
 /* main */
-/* tag css */
+    /* tag css */
 .tag_btn {
     border: none;
     color: black;
@@ -114,8 +174,7 @@ ul li {
 .tag a {
     color: #000;
 }
-
-/* prj css */
+    /* prj css */
 .card {margin: 0.5rem;}
 .card text {
     opacity: 0;
@@ -135,7 +194,6 @@ ul li {
 @media (min-width: 700px) {
     .bd-placeholder-img-lg {font-size: 3.5rem;}
 }
-
 
 /* 페이지네이션 */
 .pagination {
@@ -168,7 +226,6 @@ footer {
     font-family: 'Noto Sans KR', sans-serif;
     font-size: 0.875rem;
 }
-
 
 /* about.html */
 .symbol {

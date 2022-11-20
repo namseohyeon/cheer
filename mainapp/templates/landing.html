@@ -14,8 +14,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;800&family=Noto+Sans+KR:wght@500;700;900&family=Song+Myung&display=swap" rel="stylesheet"><head>
-
-    <script src="customjavascripts.js/randomBrightColor" type="text/javascript"></script>
+    <!-- 태그 색 랜덤
+    <script src="customjavascripts.js/randomBrightColor" type="text/javascript"></script> -->
 </head>
 <body>
     <!-- landing 최상단 -->
@@ -42,8 +42,18 @@
                 </form>
             </div>
             <!-- 메인페이지 우측 (타이틀 풀네임, 졸업생 총인원수, 총작품 수 등 표시) -->
-            <div class="col-8" id="row2">
+            <div class="col-8" id="web-info">
                 {% include 'navbar.html' %}
+                <!-- <div class="fullname_img howmuch"> -->
+                <div class="fullname">
+                    <img src="../static/mainapp/css/full_name.png">
+                </div>
+                <div class="howmuch">
+                    <p>졸업생수 n명<br></p>
+                    <p>등록된 프로젝트 수 n개</p>
+                </div>
+
+
             </div>
         </div>
     </div>
