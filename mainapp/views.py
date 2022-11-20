@@ -78,8 +78,8 @@ def scrap_list(request):
     user = request.user
     return render(request, 'mypage.html', {'user':user})
     
-def category_page(request, name):
-    category = Category.objects.get(name=name)
+def category_page(request, slug):
+    category = Category.objects.get(slug=slug)
 
     return render(
         request,
