@@ -23,7 +23,7 @@ class Category(models.Model):
         verbose_name_plural = 'Categories'
 
     def get_absolute_url(self):
-        return f'mainapp/category/{self.slug}/'
+        return f'/mainapp/category/{self.name}/'
 
 class Post(models.Model):
     title = models.CharField(max_length=30)
