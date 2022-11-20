@@ -124,8 +124,6 @@ def search(request):
     else:
         return render(request, 'search.html', {})
 
-def landing(request):
-    return render(request, 'landing.html')
 
 def vote(request):
     post = Post.objects.all()
@@ -147,3 +145,11 @@ def vote_to(request):
 def vote_result(request):
     post = Post.objects.all().order_by('-count')
     return render(request, 'vote_result.html', {'post':post})
+
+
+
+def landing(request):
+    return render(request, 'landing.html')
+
+def about(request):
+    return render(request, 'about.html')

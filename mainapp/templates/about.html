@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About 덕성여대 컴퓨터공학과</title>
+    <link href="{% static 'mainapp/bootstrap4/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css" media="screen"></link>
+    <link href="{% static 'mainapp/css/styles.css' %}" rel="stylesheet" />
+    <link href="{% static 'mainapp/css/customstyles.css' %}" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+        <!-- 메인페이지 -->
+        <div class="row">
+            <!-- 메인페이지 좌측 (타이틀, 소개, 검색창 표시) -->
+            <div class="col-4" id="college">
+                <img src="https://www.duksung.ac.kr/uploads/CONTENTS/site/duksung/duksung_symbol.png" class="logo_image"
+                    alt="logo image" width="160" height="120">
+            </div>
+            <div class="col-8">
+                {% include 'navbar.html' %}
+                <h2>덕성여자대학교</h2>
+                <h2>덕성여자대학교 컴퓨터공학전공</h2>
+                <h4>미래의 정보사회가 요구하는 실무 능력을 갖춘 우수한 IT 전문 인력 양성 <br>
+                    컴퓨터공학과는 차별화되고 전문화된 다양한 IT 첨단 기술의 교육을 통하여, 미래의 정보사회가 요구하는 실무 능력을 갖춘 우수한 IT 전문 인력 양성을 교육의 목표로 삼고 있습니다.
+                    소프트웨어의 개발 및 응용에 필요한 이론과 기술 교육을 실시하고, 실험·실습 교육을 통해 활용 능력을 높이며,
+                    캡스톤 디자인, 현장 경험 및 산업체 전문가의 교육 참여를 확대하여 습득한 지식을 현실에 적용할 수 있도록 하고 있습니다.
+                </h4>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
