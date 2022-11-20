@@ -5,52 +5,63 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{% block head_title %}CHEER{% endblock %}</title>
+  <title>{% block head_title %}CHEER - 글쓰기{% endblock %}</title>
   <link href="{% static 'mainapp/bootstrap4/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css" media="screen">
     <link href="{% static 'mainapp/css/customstyles2.css' %}" rel="stylesheet" />
   <script src="https://kit.fontawesome.com/3385a22710.js" crossorigin="anonymous"></script>
 </head>
 <body>
+<style css>
+    #file_upload_button{
+        margin:2px
+    }
+</style>
 <!-- navbar.html 나중 추가 -->
+{% include 'flow.html' %}
 {% include 'navbar.html' %}
 
     <div class="container">
         <div class="row">
-            <div class="col md-4 col-lg-3">
-                {% include 'sidebar.html' %}
-            </div>
-            <div class="col-md-8 col-lg-9" id="board_post">
+            <div class="col align-self-center">
+            <div id="board_post">
               <form method="POST" enctype="multipart/form-data">
                     {% csrf_token %}
 
                         <br><br><br>
                         <div class="mb-3">
-                            제목 {{ form.title }}
-                        </div>
+                            제목: {{ form.title }}
+                        </div><br>
                         <div class="mb-3">
-                            내용<br>{{ form.content }}
-                        </div>
+                            내용: {{ form.content }}
+                        </div><br>
                         <div class="mb-3">
-                            이미지 파일  {{ form.img }}
-                        </div>
+                            <i class="fa-sharp fa-solid fa-image"></i>
+                            이미지 파일: <br>{{ form.img }}
+                        </div><Br>
                         <div class="mb-3">
-                            프로젝트 파일  {{ form.file }}
-                        </div>
+                            <i class="fa-sharp fa-solid fa-file"></i>
+                            프로젝트 파일: <br>{{ form.file }}
+                        </div><br>
                         <div class="mb-3">
-                            카테고리 선택  {{ form.category }}
-                        </div>
+                            <i class="fa-solid fa-c"></i>
+                            카테고리 선택:
+                                {{ form.category }}
+                        </div><br>
                         <div class="mb-3">
-                            추가내용<br> {{ form.caption }}
-                        </div>
+                            <i class="fa-solid fa-hashtag"></i>
+                            태그 추가:{{ form.caption }}
+                        </div><br>
+
 
                     <div class="btnbox">
-                        <button type="submit" class="btn btn-primary">등록하기</button>
+                        <button type="submit" class="btn btn-primary btn-block">등록하기</button>
                     </div>
                 </form>
             </div>
+            </div>
         </div>
       </div>
-
+    {% include 'footer.html' %}
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>

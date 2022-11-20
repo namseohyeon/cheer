@@ -8,37 +8,13 @@
   <title>{% block head_title %} CHEER - 마이페이지 {% endblock %}</title>
   <link href="{% static 'account/bootstrap4/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css" media="screen">
     <link href="{% static 'account/css/customstyles2.css' %}" rel="stylesheet" />
+    <link href="{% static 'account/css/customstyles.css' %}" rel="stylesheet" />
   <script src="https://kit.fontawesome.com/3385a22710.js" crossorigin="anonymous"></script>
 
 </head>
 <body>
 
-<style css>
-    h5{
-        color:#808080;
-        font-weight:bold;
-            }
-
-
-    h6{
-        font-size: 0.9rem;
-        color:#808080;
-            }
-
-    #scrap_title{
-        font-size: 0.9rem;
-            }
-
-    #vote_title{
-        font-size:0.9rem;
-            }
-
-    #vote_content{
-        font-size:0.9rem;
-            }
-</style>
-
-
+    {% include 'flow.html' %}
     {% include 'navbar.html' %}
 
     <br>
@@ -49,16 +25,19 @@
             <br>
             <div class="container">
                 <div class="card-body">
-                    <h4 class="text-center" id="title">
-                        {{ user.name | upper }}<br>
-                    </h4>
+
                     {% if user.is_authenticated %}
-                      <a class="dropdown-item" href="{% url 'logout' %}" data-toggle="modal" data-target="#logoutModal">
-                        <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                        Logout</a>
+                    <h4 class="text-center" id="title">
+                        {{ user.name | upper }}<br><br>
+                        <h6 class="text-center">{{ user.name }}님, CHEER 전시회에 방문하신 것을 환영합니다!</h6>
+                    </h4>
+                      <hr>
 
                         <br><br>
-                            <h5>스크랩 목록</h5>
+                            <h5>
+                                <i class="fa-regular fa-bookmark"></i>
+                                스크랩 목록
+                            </h5>
                         {% for p in user.scrap_name.all %}
                             <a href="{% url 'board_detail' pk=p.pk %}">
                                 <!--title 앞에 아이콘아니면 -, . 이런거-->
@@ -68,16 +47,20 @@
                         {% endfor %}
                         <br>
 
-                        <h5>투표내역</h5>
+                        <h5>
+                            <i class="fa-regular fa-check-to-slot"></i>
+                            투표내역
+                        </h5>
                         <h6>제목: </h6>
                         <a id="vote_title">{{ user.vote.title | linebreaksbr }}</a><br><br>
                         <h6>내용: </h6>
                         <a id="vote_content">{{ user.vote.content | linebreaksbr }}</a><br>
                     {% else %}
-
-                      <span><a class="dropdown-item" href="{% url 'login' %}">
+                    <h1 class="text-center" id="login_req">
                         <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                        로그인하세요</a></span>
+                    </h1><br>
+                    <a role="button" class="btn btn-block btn-sm" href="{% url 'login' %}" style="background-color:#852845;color:white">
+                        로그인</a>
                     {% endif %}
                     <br>
 
