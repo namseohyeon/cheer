@@ -49,7 +49,7 @@
                         {% endblock %}
                         <!-- Post categories -->
                         {% if post.category %}
-                        <a class="badge bg-secondary text-decoration-none link-light" href="{{post.category.get_absolute_url}}">
+                        <a class="badge bg-secondary text-decoration-none link-light" href="{{ post.category.get_absolute_url }}">
                             Category: {{post.category}}<br>
                         </a>
                         {% else %}
