@@ -92,7 +92,7 @@ body {
 hr {
   margin: 1rem 0;
   color: inherit;
-  background-color: currentColor;
+  background-color: Color;
   border: 0;
   opacity: 0.25;
 }
@@ -236,7 +236,7 @@ sup {
 
 a {
   color: #0d6efd;
-  text-decoration: underline;
+  /* text-decoration: underline; */
 }
 a:hover {
   color: #0a58ca;
@@ -1984,7 +1984,7 @@ progress {
   vertical-align: bottom;
 }
 .table > :not(:first-child) {
-  border-top: 2px solid currentColor;
+  border-top: 2px solid Color;
 }
 
 .caption-top {
@@ -6217,7 +6217,7 @@ textarea.form-control-lg {
   width: 2rem;
   height: 2rem;
   vertical-align: -0.125em;
-  border: 0.25em solid currentColor;
+  border: 0.25em solid Color;
   border-right-color: transparent;
   border-radius: 50%;
   -webkit-animation: 0.75s linear infinite spinner-border;
@@ -6254,7 +6254,7 @@ textarea.form-control-lg {
   width: 2rem;
   height: 2rem;
   vertical-align: -0.125em;
-  background-color: currentColor;
+  background-color: Color;
   border-radius: 50%;
   opacity: 0;
   -webkit-animation: 0.75s linear infinite spinner-grow;
@@ -6376,7 +6376,7 @@ textarea.form-control-lg {
   min-height: 1em;
   vertical-align: middle;
   cursor: wait;
-  background-color: currentColor;
+  background-color: Color;
   opacity: 0.5;
 }
 .placeholder.btn::before {
@@ -6640,7 +6640,7 @@ textarea.form-control-lg {
   align-self: stretch;
   width: 1px;
   min-height: 1em;
-  background-color: currentColor;
+  background-color: Color;
   opacity: 0.25;
 }
 

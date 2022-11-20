@@ -15,10 +15,11 @@ urlpatterns = [
     path('board/search/', views.search, name='search'),
     path('scrap/<int:pk>/', views.scrap, name="scrap"),
     # path('scrap_delete/<int:pk>/', views.scrap_delete, name="scrap_delete"),
-
-    path('landing/', views.landing),
     
     path('vote/', views.vote, name="vote"),
     path('vote_to/', views.vote_to, name="vote_to"),
-    path('vote_result/', views.vote_result, name="vote_result")
+    path('vote_result/', views.vote_result, name="vote_result"),
+
+    path('landing/', views.landing),
+    path('landing/about/', views.about),
 ]
