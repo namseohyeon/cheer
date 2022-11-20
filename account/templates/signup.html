@@ -8,10 +8,12 @@
   <title>{% block head_title %} CHEER - 회원가입 {% endblock %}</title>
   <link href="{% static 'account/bootstrap4/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css" media="screen">
     <link href="{% static 'account/css/customstyles2.css' %}" rel="stylesheet" />
+    <link href="{% static 'account/css/customstyles.css' %}" rel="stylesheet" />
   <script src="https://kit.fontawesome.com/3385a22710.js" crossorigin="anonymous"></script>
 </head>
 <body>
 <!-- navbar.html 나중 추가 -->
+{% include 'flow.html' %}
 {% include 'navbar.html' %}
     <br>
     <div class="container">
@@ -36,10 +38,14 @@
                                     Student Number{{ form.studentNo }}
                                 </div>
                                 <div class="mb-3">
-                                    Password {{ form.password1 }}
+                                    Password
+                                    {{ form.password1 }}
+                                    <span class="pw_help">"영문, 숫자, 특수문자로 구성된 6~20자 비밀번호를 입력해주세요"</span>
                                 </div>
+
                                 <div class="mb-3">
                                     Password Confirm {{ form.password2 }}
+                                    <span class="pw_help">"비밀번호 인증을 위해 재입력해주세요"</span>
                                 </div>
 
                                 <br><br>

@@ -10,7 +10,7 @@ class Tag(models.Model):
         return self.name
     
     def get_absolute_url(self):
-        return f'mainapp/tag/{self.name}/'
+        return f'/mainapp/tag/{self.name}/'
 
 class Category(models.Model):
     name = models.CharField(max_length=50, unique=True)
@@ -23,7 +23,7 @@ class Category(models.Model):
         verbose_name_plural = 'Categories'
 
     def get_absolute_url(self):
-        return f'mainapp/category/{self.slug}/'
+        return f'/mainapp/category/{self.slug}/'
 
 class Post(models.Model):
     title = models.CharField(max_length=30)
@@ -59,3 +59,7 @@ class Comment(models.Model):
     
     def __str__(self):
         return f'{self.user}::{self.content}'
+
+    #추가함
+    def get_absolute_url(self):
+        return f'{self.post.get_absolute_url()}#comment--{self.pk}'

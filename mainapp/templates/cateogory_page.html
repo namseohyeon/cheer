@@ -1,6 +1,0 @@
-<h1>{% if category %}<span class="badge bg-secondary float-end">{{ category }}</span>{% endif %}</h1>
-{% for p in post_list %}
-{{ p.title }}<br>
-{{ p.content }}<br>
-<img src="{{ p.img.url }}" width="300px">
-{% endfor %}

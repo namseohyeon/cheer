@@ -23,13 +23,11 @@ class signupForm(UserCreationForm):
                 }),
             'password1': forms.PasswordInput(attrs={
                 'id':'password1',
-                'placeholder': '영문, 숫자, 특수문자로 구성된 6~20자 비밀번호를 입력해주세요',
                 'class': 'form-control',
                 'required': 'required'
                 }),
             'password2': forms.PasswordInput(attrs={
                 'id':'password2',
-                'placeholder': '비밀번호 인증을 위해 재입력해주세요',
                 'class': 'form-control',
                 'required': 'required'
                 }),

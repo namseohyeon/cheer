@@ -51,7 +51,7 @@ a:hover{
 /*post등록*/
 #board_post{
     color:white;
-    font-size:1px
+    font-size:1rem
 }
 
 
@@ -87,3 +87,105 @@ h2{
     border-right: 5px solid #fff;
 
 }
+
+/*tag_page*/
+ h6{
+        font-size: 0.9rem;
+        color:#808080;
+            }
+
+    #scrap_title{
+        font-size: 0.9rem;
+            }
+
+
+
+@font-face {
+    font-family: 'JSongMyung-Regular-KO';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/JSongMyung-Regular-KO.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* DSWU CS 배너 */
+.flow-text {
+    display: flex;
+    flex: 0 0 auto;
+    white-space: nowrap;
+    overflow: hidden;
+    transition: 1s;
+    font-size: 1.0rem;
+    font-weight:bold;
+    color: #fff;
+    background-color: #981b45;
+}
+.flow-wrap {
+    animation: textLoop 10s linear infinite;
+    padding-right: 1vw;
+}
+
+@keyframes textLoop {
+    0% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+}
+    100% {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+    }
+}
+
+body {background-color: #000}
+
+ul li {
+    width: 120px;
+}
+.nav-link:link {
+    font-family: 'Noto Sans KR', sans-serif;
+    color: white;
+}
+.nav-link:visited {     /* :visited는 :hover보다 먼저 써야 적용됨 */
+    color: white;
+}
+.nav-link:hover {
+    color: #981b45;
+}
+.dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0;
+    background-color: #000;
+    color: #fff;
+}
+.dropdown-item {
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #fff;
+}
+.dropdown-item:hover {
+    font-family: 'Noto Sans KR', sans-serif;
+    background-color: #000;
+    color: #981b45;
+}
+#save_career {
+    color: #fff;
+    text-align: right;
+    padding: 0;
+}
+#cong_happy {
+    color: #fff;
+    text-align: left;
+    padding: 0;
+}
+
+/* 푸터바 */
+footer {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 0.875rem;
+}
+
+
+
+
+
+
+
+

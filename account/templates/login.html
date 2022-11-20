@@ -8,11 +8,12 @@
   <title>{% block head_title %} CHEER - 로그인 {% endblock %}</title>
   <link href="{% static 'account/bootstrap4/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css" media="screen">
   <link href="{% static 'account/css/customstyles2.css' %}" rel="stylesheet" />
+    <link href="{% static 'account/css/customstyles.css' %}" rel="stylesheet" />
     <script src="https://kit.fontawesome.com/3385a22710.js" crossorigin="anonymous"></script>
 </head>
 <body>
 <!-- navbar.html 나중 추가 -->
-
+{% include 'flow.html' %}
 {% include 'navbar.html' %}
 
     <br>

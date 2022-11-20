@@ -1,5 +1,4 @@
 
-<!--title/name -->
 <div>
     <h4 class="text-center" id="sidebar_title"><br>sogong<br>sugong</h4>
     <h6 class="text-center" id="sidebar_name"><br>권민정<br>남서현<br>이동희<br>한진경<br></h6>
@@ -15,3 +14,16 @@
     <a class="badge bg-secondary text-decoration-none  link-light" href="/blog/category/no_category/">미분류<br></a>
     {% endif %}
 </h5>
+<br><br><br>
+
+<!--tag -->
+<div class="text-center">
+    <i class="fas fa-tag"></i>
+                {% for tag in post.Tag.all %}
+                    <span class="badge badge-pill badge-light">
+                        <a class="tag_random" href="{% url 'tag_page' tag %}" style="color:#852845">
+                            #{{ tag }}
+                        </a>
+                    </span>
+                {% endfor %}
+</div>

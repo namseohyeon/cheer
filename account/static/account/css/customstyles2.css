@@ -56,23 +56,42 @@ a:hover{
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 
+.pw_help{
+    font-size:0.75rem;
+    color:#808080
+}
+
 /*mypage.html */
 span{
         color: white;
 }
 
-.dropdown-item {
-    display: block;
-    width: 100;
-    padding: 0.25rem 1.5rem;
-    clear: both;
-    font-weight: 700;
-    color: #212529;
-    text-align: inherit;
-    white-space: nowrap;
-    background-color: #852845;
-    border: 0;
-}
+    h5{
+        color:#808080;
+        font-weight:bold;
+            }
+
+
+    h6{
+        font-size: 0.9rem;
+        color:#808080;
+            }
+
+    #scrap_title{
+        font-size: 0.9rem;
+            }
+
+    #vote_title{
+        font-size:0.9rem;
+            }
+
+    #vote_content{
+        font-size:0.9rem;
+            }
+
+
+
+
 
 /*login.html*/
 #id_username {

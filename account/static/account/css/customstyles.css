@@ -96,94 +96,20 @@ ul li {
     background-color: #000;
     color: #981b45;
 }
-
-    /* cheer 풀네임 + 졸업생수, 프로젝트 수 표시 */
-.fullname {
-    width: 100%;
+#save_career {
+    color: #fff;
+    text-align: right;
+    padding: 0;
 }
-.fullname img {
-    max-width: 100%;
-    height: auto;
-    justify-content: center;
-    text-align: center;
-}
-    /* cheer 풀네임 - animation */
-.fullname img {
-  animation: fadeOut ease 5s;
-  animation-fill-mode: forwards;
-  animation-delay: 2s;
-}
-@keyframes fadeOut {
-  0% {
-    opacity:1;
-  }
-  100% {
-    opacity:0;
-  }
-}
-    /* 졸업생수, 프로젝트 수 - animation */
-
-.howmuch {
-  display: grid;
-  place-items: center;
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  width: 100%;
-  transform: translate( -50%, -50%);
-  font-size: 2em;
-  text-align: center;
-  margin-top: 10%;
+#cong_happy {
+    color: #fff;
+    text-align: left;
+    padding: 0;
 }
 
-.howmuch p {
-  width: 22ch;
-  animation: typing 4s steps(22), blink .5s step-end infinite alternate;
-  white-space: nowrap;
-  overflow: hidden;
-  border-right: 3px solid;
-  color: white;
-  text-align: center;
-
-}
-
-@keyframes typing {
-  from {
-    width: 0
-  }
-}
-
-@keyframes blink {
-  50% {
-    border-color: transparent
-  }
-}
 
 /* main */
-    /* tag css */
-.tag_btn {
-    border: none;
-    color: black;
-    padding: 5px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    margin: 4px 10px;
-    cursor: pointer;
-    border-radius: 16px;
-}
-.tag a {
-    color: #000;
-}
-    /* prj css */
 .card {margin: 0.5rem;}
-.card text {
-    opacity: 0;
-}
-.card:hover text {
-    opacity: 1;
-}
-
 .bd-placeholder-img {
     font-size: 1.125rem;
     text-anchor: middle;
@@ -195,6 +121,7 @@ ul li {
 @media (min-width: 700px) {
     .bd-placeholder-img-lg {font-size: 3.5rem;}
 }
+
 
 /* 페이지네이션 */
 .pagination {
@@ -209,7 +136,7 @@ ul li {
     color: #fff;
 }
 .pagination a,
-.pagination .current{
+.pagination .current {
     color: #fff;
     border-radius: 50%;
     padding-top: 4px;
@@ -219,25 +146,13 @@ ul li {
     margin: 0 6px;
 }
 .pagination .current {
-    color: #981b45;
+    color: #fff;
 }
 
-/* footer.html */
+/* 푸터바 */
 footer {
     font-family: 'Noto Sans KR', sans-serif;
     font-size: 0.875rem;
 }
 
-/* about.html */
-.symbol {
-    position: relative
-}
 
-.logo_image {
-    display: block;
-    margin: auto;
-}
-
-.college {
-    display: flex; justify-content:center;
-}

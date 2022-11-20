@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{% block head_title %} CHEER - {% if tag %}Tag : {{ tag|upper }}{% endif %} {% endblock %}</title>
+  <title>{% block head_title %}CHEER - {% if category %}Category : {{ category|upper }}{% endif %} {% endblock %}</title>
   <link href="{% static 'account/bootstrap4/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css" media="screen">
     <link href="{% static 'account/css/customstyles2.css' %}" rel="stylesheet" />
     <link href="{% static 'account/css/customstyles.css' %}" rel="stylesheet" />
@@ -14,11 +14,11 @@
 </head>
 <body>
 <style css>
-    #tag_title{
+    #category_title{
         font-size:0.9rem;
             }
 
-    #tag_content{
+    #category_content{
         font-size:0.9rem;
             }
 </style>
@@ -35,7 +35,7 @@
             <div class="container">
                 <div class="card-body">
                     <h4 class="text-center" id="title">
-                        {% if tag %}<span class="badge bg-secondary float-end">#{{ tag }}</span>{% endif %}
+                        {% if category %}<span class="badge bg-secondary float-end">{{ category }}</span>{% endif %}
                     </h4>
                     <br>
                     <hr>
@@ -43,9 +43,9 @@
 
                         {% for p in post_list %}
                             <h6>프로젝트 제목: </h6>
-                            <a id="tag_title">{{ p.title }}</a><br><br>
+                            <a id="category_title">{{ p.title }}</a><br><br>
                             <h6>내용: </h6>
-                            <a id="tag_content">{{ p.content |linebreaksbr}}</a><br><br>
+                            <a id="category_content">{{ p.content |linebreaksbr}}</a><br><br>
                             <img src="{{ p.img.url }}" width="300px">
                             <hr><br><br>
                         {% endfor %}
@@ -69,4 +69,5 @@
 
 </body>
 </html>
+
 
