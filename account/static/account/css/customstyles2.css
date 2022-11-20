@@ -56,6 +56,11 @@ a:hover{
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 
+.pw_help{
+    font-size:0.75rem;
+    color:#808080
+}
+
 /*mypage.html */
 span{
         color: white;

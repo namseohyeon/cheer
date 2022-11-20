@@ -34,23 +34,20 @@
                       <hr>
 
                         <br><br>
-                            <h5>
-                                <i class="fa-regular fa-bookmark"></i>
-                                스크랩 목록
-                            </h5>
+                            <h5>스크랩 목록</h5>
                         {% for p in user.scrap_name.all %}
                             <a href="{% url 'board_detail' pk=p.pk %}">
                                 <!--title 앞에 아이콘아니면 -, . 이런거-->
-                                <div id="scrap_title">{{ p.title }}</div>
+                                <div id="scrap_title">
+                                    <i class="fa-regular fa-bookmark"></i>
+                                    {{ p.title }}
+                                </div>
                             </a>
                             <br>
                         {% endfor %}
                         <br>
 
-                        <h5>
-                            <i class="fa-regular fa-check-to-slot"></i>
-                            투표내역
-                        </h5>
+                        <h5>투표내역</h5>
                         <h6>제목: </h6>
                         <a id="vote_title">{{ user.vote.title | linebreaksbr }}</a><br><br>
                         <h6>내용: </h6>
