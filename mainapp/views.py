@@ -8,7 +8,8 @@ from django.db.models import Q
 def main(request):
     post = Post.objects.all()
     category = Category.objects.all()
-    return render(request, 'main.html',{'post':post,'category':category})
+    tag = Tag.objects.all()
+    return render(request, 'main.html',{'post':post,'category':category, 'tag':tag})
 
 
 def board_post(request):
