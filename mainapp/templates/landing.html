@@ -66,80 +66,12 @@
                 <div class="col-md-8 mx-auto">
                     <div class="tag">
                     {% for tag in tag.all %}
-                        {% if tag.name == "app" %}
-                          <a href="{% url 'tag_page' tag %}">
-                            <button class="tag_btn">
-                                <!-- {{ tag }} -->
-                                APP
-                            </button>
-                          </a>
-                        {% elif tag.name == "web" %}
+                        {% if tag.name == "app" or tag.name == "web" or tag.name == "python" or tag.name == "c" or tag.name == "java" or tag.name == "c++" or tag.name == "kotlin" or tag.name == "django" or tag.name == "node.js" or tag.name == "spring boot" or tag.name == "swift" or tag.name == "react" %}
                           <a href="{% url 'tag_page' tag %}">
                             <button class="tag_btn" >
                                 {{ tag }}
                             </button>
                           </a>
-                        {% elif tag.name == "python" %}
-                        <a href="{% url 'tag_page' tag %}">
-                          <button class="tag_btn" >
-                              {{ tag }}
-                          </button>
-                        </a>
-                        {% elif tag.name == "c" %}
-                        <a href="{% url 'tag_page' tag %}">
-                          <button class="tag_btn" >
-                              {{ tag }}
-                          </button>
-                        </a>
-                        {% elif tag.name == "java" %}
-                        <a href="{% url 'tag_page' tag %}">
-                          <button class="tag_btn" >
-                              {{ tag }}
-                          </button>
-                        </a>
-                        {% elif tag.name == "c++" %}
-                        <a href="{% url 'tag_page' tag %}">
-                          <button class="tag_btn" >
-                              {{ tag }}
-                          </button>
-                        </a>
-                        {% elif tag.name == "kotlin" %}
-                        <a href="{% url 'tag_page' tag %}">
-                          <button class="tag_btn" >
-                              {{ tag }}
-                          </button>
-                        </a>
-                        {% elif tag.name == "django" %}
-                        <a href="{% url 'tag_page' tag %}">
-                          <button class="tag_btn" >
-                              {{ tag }}
-                          </button>
-                        </a>
-                        {% elif tag.name == "node.js" %}
-                        <a href="{% url 'tag_page' tag %}">
-                          <button class="tag_btn" >
-                              {{ tag }}
-                          </button>
-                        </a>
-                        {% elif tag.name == "springboot" %}
-                        <a href="{% url 'tag_page' tag %}">
-                          <button class="tag_btn" >
-                              {{ tag }}
-                          </button>
-                        </a>
-                        {% elif tag.name == "swift" %}
-                        <a href="{% url 'tag_page' tag %}">
-                          <button class="tag_btn" >
-                              {{ tag }}
-                          </button>
-                        </a>
-                        {% elif tag.name == "react" %}
-                        <a href="{% url 'tag_page' tag %}">
-                          <button class="tag_btn" >
-                              {{ tag }}
-                          </button>
-                        </a>
-                        {% else %}
                         {% endif %}
                     {% endfor %}
                     </div>
