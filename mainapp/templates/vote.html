@@ -19,6 +19,7 @@
     }
 
 
+
 </style>
 
 {% include 'flow.html' %}
@@ -40,20 +41,22 @@
                         </div>
                         <form action="{% url 'vote_to' %}" method="POST">
                         {% csrf_token %}
-                        {% for p in post %}
-                            <div class="card border border-danger" style="width: 20rem;">
-                                <div class="card-header">
-                                    <input type="radio" name="choice" value="{{ p.id }}"/>
-                                    <a href="{% url 'board_detail' pk=p.pk %}">
-                                        <span class="vote_title card-title" style="color:#852845">{{ p.title }}</span>
-                                    </a><br>
+                                <div class="row row-cols-4 align-self-center" style="width: 130.5%">
+                                    {% for p in post %}
+                                        <div class="card border border-danger" style="width: 20rem;">
+                                            <div class="card-header">
+                                                <input type="radio" name="choice" value="{{ p.id }}"/>
+                                                <a href="{% url 'board_detail' pk=p.pk %}">
+                                                    <span class="vote_title card-title" style="color:#852845">{{ p.title }}</span>
+                                                </a><br>
+                                            </div>
+                                            <img class="img-fluid rounded card-img-top" src="{{ p.img.url }}" width="100">
+                                        </div><br>
+                                    {% endfor %}
                                 </div>
-                                <img class="img-fluid rounded card-img-top" src="{{ p.img.url }}" width="100">
-                            </div><br>
 
-                        {% endfor %}
 
-                            <br>
+                        <br>
                         {% if user.vote != None %}
                                 <p><input class="btn btn btn-primary btn-block btn-sm"
                                           type="submit" value="투표하기" onclick="alert('투표를 이미 완료하였습니다.')"></input></p>
