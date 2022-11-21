@@ -59,61 +59,89 @@
     </div>
     <!-- main -->
     <div class="container" id="main-scroll">
+        
         <!-- 태그 표시 -->
         <section class="py-5 text-center" id="main-scroll1">
             <div class="row py-lg-5">
                 <div class="col-md-8 mx-auto">
                     <div class="tag">
-                        <a href="http://127.0.0.1:8000/landing/about/">
+                    {% for tag in tag.all %}
+                        {% if tag.name == "app" %}
+                          <a href="{% url 'tag_page' tag %}">
                             <button class="tag_btn">
-                                #App
+                                <!-- {{ tag }} -->
+                                APP
                             </button>
-                        </a>
-                        <a href="https://www.naver.com/">
+                          </a>
+                        {% elif tag.name == "web" %}
+                          <a href="{% url 'tag_page' tag %}">
                             <button class="tag_btn" >
-                                #Web
+                                {{ tag }}
                             </button>
+                          </a>
+                        {% elif tag.name == "python" %}
+                        <a href="{% url 'tag_page' tag %}">
+                          <button class="tag_btn" >
+                              {{ tag }}
+                          </button>
                         </a>
-                        <a href="https://www.naver.com/">
-                            <button class="tag_btn" >
-                                #Python
-                            </button>
+                        {% elif tag.name == "c" %}
+                        <a href="{% url 'tag_page' tag %}">
+                          <button class="tag_btn" >
+                              {{ tag }}
+                          </button>
                         </a>
-                        <a href="https://www.naver.com/">
-                            <button class="tag_btn" >
-                                #C
-                            </button>
+                        {% elif tag.name == "java" %}
+                        <a href="{% url 'tag_page' tag %}">
+                          <button class="tag_btn" >
+                              {{ tag }}
+                          </button>
                         </a>
-                        <a href="https://www.naver.com/">
-                            <button class="tag_btn" >
-                                #Java
-                            </button>
+                        {% elif tag.name == "c++" %}
+                        <a href="{% url 'tag_page' tag %}">
+                          <button class="tag_btn" >
+                              {{ tag }}
+                          </button>
                         </a>
-                        <a href="https://www.naver.com/">
-                            <button class="tag_btn" >
-                                #C++
-                            </button>
+                        {% elif tag.name == "kotlin" %}
+                        <a href="{% url 'tag_page' tag %}">
+                          <button class="tag_btn" >
+                              {{ tag }}
+                          </button>
                         </a>
-                        <a href="https://www.naver.com/">
-                            <button class="tag_btn" >
-                                #Kotlin
-                            </button>
+                        {% elif tag.name == "django" %}
+                        <a href="{% url 'tag_page' tag %}">
+                          <button class="tag_btn" >
+                              {{ tag }}
+                          </button>
                         </a>
-                        <a href="https://www.naver.com/">
-                            <button class="tag_btn" >
-                                #태그6
-                            </button>
+                        {% elif tag.name == "node.js" %}
+                        <a href="{% url 'tag_page' tag %}">
+                          <button class="tag_btn" >
+                              {{ tag }}
+                          </button>
                         </a>
-                        <a href="https://www.naver.com/">
-                            <button class="tag_btn" >
-                                #태그7
-                            </button>
+                        {% elif tag.name == "springboot" %}
+                        <a href="{% url 'tag_page' tag %}">
+                          <button class="tag_btn" >
+                              {{ tag }}
+                          </button>
                         </a>
-                        <a href="https://www.naver.com/">
-                            <button class="tag_btn" >
-                                #태그8
-                            </button>
+                        {% elif tag.name == "swift" %}
+                        <a href="{% url 'tag_page' tag %}">
+                          <button class="tag_btn" >
+                              {{ tag }}
+                          </button>
                         </a>
+                        {% elif tag.name == "react" %}
+                        <a href="{% url 'tag_page' tag %}">
+                          <button class="tag_btn" >
+                              {{ tag }}
+                          </button>
+                        </a>
+                        {% else %}
+                        {% endif %}
+                    {% endfor %}
                     </div>
 
                 </div>
