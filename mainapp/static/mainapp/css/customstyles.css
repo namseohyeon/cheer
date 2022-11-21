@@ -37,7 +37,7 @@ body {background-color: #000}
 
 /* 왼쪽 col */
 .title {    /* 프로젝트 title */
-    font-family: 'Noto Sans KR', sans-serif;
+    font-family: 'Shrikhand', cursive;
     font-size: 5em;
     color: #fff;
 }
@@ -45,7 +45,12 @@ body {background-color: #000}
     border-right:
     5px solid #fff;
     font-family: 'Noto Sans KR', sans-serif;
-}   /* main 세로 구분선 */
+}
+#title-info img {
+    width: 75%;
+    margin-top: 20px;
+}
+/* main 세로 구분선 */
 .info {color: #fff;}
 /* 서치바 */
 .searchBar {
@@ -109,9 +114,9 @@ ul li {
 }
     /* cheer 풀네임 - animation */
 .fullname img {
-  animation: fadeOut ease 5s;
+  animation: fadeOut ease 2s;
   animation-fill-mode: forwards;
-  animation-delay: 2s;
+  animation-delay: 3s;
 }
 @keyframes fadeOut {
   0% {
@@ -134,17 +139,37 @@ ul li {
   font-size: 2em;
   text-align: center;
   margin-top: 10%;
+  color: white;
 }
 
-.howmuch p {
+.grad {
   width: 22ch;
-  animation: typing 4s steps(22), blink .5s step-end infinite alternate;
+  animation: fadeIn ease 3s forwards, typing 3s steps(22), blink .5s step-end infinite alternate;
   white-space: nowrap;
   overflow: hidden;
   border-right: 3px solid;
   color: white;
   text-align: center;
-
+  animation-delay: 4.5s;
+  opacity: 0;
+  font-family: 'Nanum Gothic Coding', monospace;
+}
+.prj {
+  width: 22ch;
+  animation: fadeIn ease 3s forwards, typing 3s steps(22), blink .5s step-end infinite alternate;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid;
+  color: white;
+  text-align: center;
+  animation-delay: 8.5s;
+  opacity: 0;
+  font-family: 'Nanum Gothic Coding', monospace;
+}
+@keyframes fadeIn {
+   to {
+    opacity: 1;
+  }
 }
 
 @keyframes typing {
@@ -230,8 +255,9 @@ footer {
 
 /* about.html */
 .ds_img img {
-    margin-top: 30%;
-    left: 50%;
+    top: 25%;
+
+    position: sticky;
 }
 .ds_img {
     display: flex; justify-content:center;
@@ -240,15 +266,18 @@ footer {
 .dsce {
     color: white;
 }
-.dsce h3 {
-    padding: 50px 0px 20px;
+.major {
+    padding: 50px 0px 5px 50px;
     font-weight: bold;
+
 }
 .subtitle {
     line-height: 300%;
+    padding-left: 50px;
 }
 .content {
-    line-height: 180%;
+    line-height: 160%;
+    padding-left: 50px;
 }
 .dsce_web a {
     color: #981b45;

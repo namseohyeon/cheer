@@ -13,10 +13,9 @@
     <!-- google fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;800&family=Noto+Sans+KR:wght@500;700;900&family=Song+Myung&display=swap" rel="stylesheet"><head>
-    <!-- 태그 색 랜덤
-    <script src="customjavascripts.js/randomBrightColor" type="text/javascript"></script> -->
-</head>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding:wght@700&family=Nanum+Myeongjo:wght@400;800&family=Noto+Sans+KR:wght@500;700;900&family=Noto+Serif+KR&family=Shrikhand&family=Song+Myung&display=swap" rel="stylesheet">
+    
+<head>
 <body>
     <!-- landing 최상단 -->
     {% include 'flow.html' %}
@@ -26,8 +25,9 @@
         <div class="row">
             <!-- 메인페이지 좌측 (타이틀, 소개, 검색창 표시) -->
             <div class="col-4" id="title-info">
-                <span class="title">CHEER</span>
-                <br><br><br><br><br><br>
+                <!--<span class="title">CHEER</span>-->
+                <img src="../static/mainapp/css/title.png">
+                <br><br><br><br><br><br><br><br>
                 <h5 class="info">
                     덕성여자대학교 <br>
                     컴퓨터공학전공 <br>
@@ -46,14 +46,14 @@
                 {% include 'navbar.html' %}
                 <!-- <div class="fullname_img howmuch"> -->
                 <div class="fullname">
-                    <img src="../static/mainapp/css/full_name.png">
+                    <br><img src="../static/mainapp/css/full_name1.png">
                 </div>
-                <div class="howmuch">
-                    <p>졸업생수 n명<br></p>
-                    <p>등록된 프로젝트 수 n개</p>
+                <div class="howmuch" onload="numberCounter">
+                    <p class="grad">졸업생 수 0명</p>
+                    </p>
+                    <p class="prj">등록된 작품 수 0개</p>
+                    </p>
                 </div>
-
-
             </div>
         </div>
     </div>
@@ -63,7 +63,7 @@
         <!-- 태그 표시 -->
         <section class="py-5 text-center" id="main-scroll1">
             <div class="row py-lg-5">
-                <div class="col-md-8 mx-auto">
+                <div class="col-lg-7 mx-auto">
                     <div class="tag">
                     {% for tag in tag.all %}
                         {% if tag.name == "app" or tag.name == "web" or tag.name == "python" or tag.name == "c" or tag.name == "java" or tag.name == "c++" or tag.name == "kotlin" or tag.name == "django" or tag.name == "node.js" or tag.name == "spring boot" or tag.name == "swift" or tag.name == "react" %}
