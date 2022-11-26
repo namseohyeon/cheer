@@ -1,3 +1,4 @@
+{% load static %}
 <form method="POST" action="{% url 'search' %}">
   {% csrf_token %}        
   <input type="search" placeholder="Search" name="search">
@@ -6,7 +7,15 @@
 {% for c in category %}
 <a href="{{ c.get_absolute_url }}">{{c}}<br></a>
 {% endfor %}<br><br><br>
-
+{% for tag in tag.all %}
+    {% if tag.name == "app" or tag.name == "web" or tag.name == "python" or tag.name == "c" or tag.name == "java" or tag.name == "c++" or tag.name == "kotlin" or tag.name == "django" or tag.name == "node.js" or tag.name == "spring boot" or tag.name == "swift" or tag.name == "react" %}
+      <a href="{% url 'tag_page' tag %}">
+        <button class="tag_btn" >
+            {{ tag }}
+        </button>
+      </a>
+    {% endif %}
+{% endfor %}
 {% if user.is_authenticated %}
   <span>{{ user.name }}님 환영합니다 *^^*</span>
   <a class="dropdown-item" href="{% url 'logout' %}" data-toggle="modal" data-target="#logoutModal">
@@ -40,7 +49,9 @@
         {% for tag in p.Tag.iterator %}
           {{ tag }}
         {% endfor %}
-        <img src="{{ p.img.url }}" width="300"><br>
+        {% if p.img %}
+          <img src="{{ p.img.url }}" width="300"><br>
+        {% endif %}
         {{ p.date }}
         </a>
         <br>
@@ -48,3 +59,5 @@
         <br>
     </div>
 {% endfor %}
+
+

@@ -34,6 +34,18 @@ a:hover{
         font-weight:bold
         }
 
+/*board_detail*/
+#post-area{
+        padding-left: 5rem
+    }
+
+
+.comment_h4{
+        font-size:1rem;
+        color:#000
+    }
+
+
 /*sidebar*/
 #sidebar_title{
         color:white;
@@ -43,10 +55,13 @@ a:hover{
         color:white;
         font-size:small
         }
+
 #category_title{
         color:white;
         font-weight:bold
         }
+
+
 
 /*post등록*/
 #board_post{
@@ -83,10 +98,10 @@ h2{
     font-size:1rem
 }
 
-#sidebar-info {
-    border-right: 5px solid #fff;
-
+hr{
+    background-color:white
 }
+
 
 /*tag_page*/
  h6{
@@ -97,6 +112,16 @@ h2{
     #scrap_title{
         font-size: 0.9rem;
             }
+
+            #tag_title{
+        font-size:0.9rem;
+            }
+
+    #tag_content{
+        font-size:0.9rem;
+            }
+
+
 
 
 

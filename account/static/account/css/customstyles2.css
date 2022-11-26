@@ -88,7 +88,10 @@ span{
     #vote_content{
         font-size:0.9rem;
             }
-
+    .btn btn-block btn-sm{
+        background-color:#852845;
+        color:white
+    }
 
 
 

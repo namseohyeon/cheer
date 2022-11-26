@@ -25,9 +25,6 @@
         border-right:4px solid #fff
     }
 
-    #post-area{
-        padding-left: 5rem
-    }
 </style>
 
 
@@ -57,23 +54,26 @@
                         {% endif %}
 
                         <!--스크랩-->
-                        <button type="button" class="btn btn-info float-right btn-primary position-relative" >
-                            {% if user in post.scrap.all %}
-                                <a href="{% url 'scrap' pk=post.pk %}">
-                                    <i class="fa-solid fa-bookmark" ></i>
-                                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                                        ({{ post.scrap.all.count }}) people saved this project!
-                                    </span>
-                                </a>
-                            {% else %}
-                                <a href="{% url 'scrap' pk=post.pk %}">
-                                    <i class="fa-regular fa-bookmark"></i>
-                                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                                        ({{ post.scrap.all.count }}) people saved this project!
-                                    </span>
-                                </a>
-                            {% endif %}
-                        </button>
+                        {% if user.is_authenticated %}
+                            <button type="button" class="btn btn-info float-right btn-primary position-relative" >
+                                {% if user in post.scrap.all %}
+                                    <a href="{% url 'scrap' pk=post.pk %}">
+                                        <i class="fa-solid fa-bookmark" ></i>
+                                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                            ({{ post.scrap.all.count }}) people saved this!
+                                        </span>
+                                    </a>
+                                {% else %}
+                                    <a href="{% url 'scrap' pk=post.pk %}">
+                                        <i class="fa-regular fa-bookmark"></i>
+                                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                            ({{ post.scrap.all.count }}) people saved this project!
+                                        </span>
+                                    </a>
+                                {% endif %}
+                            </button>
+                        {% endif %}
+
                     <!--
                     <button type="button" class="btn btn-primary">
                         <span class="badge text-bg-secondary">({{ post.scrap.all.count }})</span>
@@ -81,8 +81,6 @@
                     -->
                     </div>
 
-
-                    <!-- 투표하기 버튼 나중 추가 -->
                     <br>
 
 
@@ -123,7 +121,7 @@
                         </a>
                     </span>
                 {% endfor %}
-                <hr style="background-color:white">
+                <hr>
 
                 <!-- Comments section-->
                         <div id="comment-area" class="mb-5">
@@ -146,7 +144,7 @@
                                             <!-- Single comment-->
 
                                             <hr>
-                                            <h4 style="font-size:1rem; color:#000"> 댓글 ({{ post.comment_set.count }})</h4>
+                                            <h4 class="comment_h4"> 댓글 ({{ post.comment_set.count }})</h4>
                                             <br>
                                             {% for c in post.comment_set.all %}
                                             <div class="d-flex" id="comment--{{comment.pk}}">
