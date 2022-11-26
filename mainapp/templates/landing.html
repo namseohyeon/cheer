@@ -64,18 +64,71 @@
         <section class="py-5 text-center" id="main-scroll1">
             <div class="row py-lg-5">
                 <div class="col-lg-7 mx-auto">
+
+                    <div>
+                        <div class="tag">
+                        <a href="http://127.0.0.1:8000/landing/about/">
+                            <button class="tag_btn">
+                                #App
+                            </button>
+                        </a>
+                        <a href="https://www.naver.com/">
+                            <button class="tag_btn" >
+                                #Web
+                            </button>
+                        </a>
+                        <a href="https://www.naver.com/">
+                            <button class="tag_btn" >
+                                #Python
+                            </button>
+                        </a>
+                        <a href="https://www.naver.com/">
+                            <button class="tag_btn" >
+                                #C
+                            </button>
+                        </a>
+                        <a href="https://www.naver.com/">
+                            <button class="tag_btn" >
+                                #Java
+                            </button>
+                        </a>
+                        <a href="https://www.naver.com/">
+                            <button class="tag_btn" >
+                                #C++
+                            </button>
+                        </a>
+                        <a href="https://www.naver.com/">
+                            <button class="tag_btn" >
+                                #Kotlin
+                            </button>
+                        </a>
+                        <a href="https://www.naver.com/">
+                            <button class="tag_btn" >
+                                #태그6
+                            </button>
+                        </a>
+                        <a href="https://www.naver.com/">
+                            <button class="tag_btn" >
+                                #태그7
+                            </button>
+                        </a>
+                        <a href="https://www.naver.com/">
+
                     <div class="tag">
                     {% for tag in tag.all %}
                         {% if tag.name == "app" or tag.name == "web" or tag.name == "python" or tag.name == "c" or tag.name == "java" or tag.name == "c++" or tag.name == "kotlin" or tag.name == "django" or tag.name == "node.js" or tag.name == "spring boot" or tag.name == "swift" or tag.name == "react" %}
                           <a href="{% url 'tag_page' tag %}">
+
                             <button class="tag_btn" >
                                 {{ tag }}
                             </button>
+                        </a>
+                        </div>
+
                           </a>
                         {% endif %}
                     {% endfor %}
                     </div>
-
                 </div>
             </div>
         </section>
@@ -171,12 +224,12 @@
         </div>
     </div>
 
-    <!-- 페이지네이션 -->
-    <ul class="pagination">
-        <li><span class="current">1</span></li>
+    <!-- Pagination-->
+    <ul class="pagination justify-content-center my-4">
+        <li><a href="#">&lt</a></li>
+\        <li><span class="current">1</span></li>
         <li><a href="#">2</a></li>
         <li><a href="#">3</a></li>
-        <li><a href="#">4</a></li>
         <li><a href="#">&gt;</a> </li>
     </ul>
 

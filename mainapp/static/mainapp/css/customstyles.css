@@ -256,7 +256,6 @@ footer {
 /* about.html */
 .ds_img img {
     top: 25%;
-
     position: sticky;
 }
 .ds_img {
@@ -267,17 +266,12 @@ footer {
     color: white;
 }
 .major {
-    padding: 50px 0px 5px 50px;
     font-weight: bold;
-
-}
-.subtitle {
-    line-height: 300%;
-    padding-left: 50px;
+    padding-top: 3%;
 }
 .content {
-    line-height: 160%;
-    padding-left: 50px;
+    line-height: 200%;
+    padding: 10px, 0px;
 }
 .dsce_web a {
     color: #981b45;
