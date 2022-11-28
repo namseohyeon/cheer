@@ -50,7 +50,10 @@
                                                     <span class="vote_title card-title" style="color:#852845">{{ p.title }}</span>
                                                 </a><br>
                                             </div>
-                                            <img class="img-fluid rounded card-img-top" src="{{ p.img.url }}" width="100">
+                                            {% if p.img %}
+                                                <img class="img-fluid rounded card-img-top" src="{{ p.img.url }}" width="100">
+                                            {% endif %}
+                                            
                                         </div><br>
                                     {% endfor %}
                                 </div>
