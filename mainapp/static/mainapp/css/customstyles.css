@@ -127,7 +127,6 @@ ul li {
   }
 }
     /* 졸업생수, 프로젝트 수 - animation */
-
 .howmuch {
   display: grid;
   place-items: center;
@@ -221,7 +220,7 @@ ul li {
     .bd-placeholder-img-lg {font-size: 3.5rem;}
 }
 
-/* 페이지네이션 */
+/* 페이지네이션
 .pagination {
     display: flex;
     justify-content: center;
@@ -230,8 +229,7 @@ ul li {
     text-align: center;
 }
 .pagination a:hover {
-    background: #981b45;
-    color: #fff;
+    color: #981b45;
 }
 .pagination a,
 .pagination .current{
@@ -245,7 +243,7 @@ ul li {
 }
 .pagination .current {
     color: #981b45;
-}
+} */
 
 /* footer.html */
 footer {
@@ -268,10 +266,11 @@ footer {
 .major {
     font-weight: bold;
     padding-top: 3%;
+    margin-left: 5%;
 }
 .content {
     line-height: 200%;
-    padding: 10px, 0px;
+    margin-left: 5%;
 }
 .dsce_web a {
     color: #981b45;
