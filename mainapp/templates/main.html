@@ -4,8 +4,9 @@
   <input type="search" placeholder="Search" name="search">
   <button type="submit"> Search </button>
 </form>
+{{ count }}
 {% for c in category %}
-<a href="{{ c.get_absolute_url }}">{{c}}<br></a>
+<a href="{{ c.get_absolute_url }}">{{ c }}<br></a>
 {% endfor %}<br><br><br>
 {% for tag in tag.all %}
     {% if tag.name == "app" or tag.name == "web" or tag.name == "python" or tag.name == "c" or tag.name == "java" or tag.name == "c++" or tag.name == "kotlin" or tag.name == "django" or tag.name == "node.js" or tag.name == "springboot" or tag.name == "swift" or tag.name == "react" %}
@@ -59,5 +60,6 @@
         <br>
     </div>
 {% endfor %}
-
+{{ post.count }}
+{{ count }}
 

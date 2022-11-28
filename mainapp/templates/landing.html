@@ -17,9 +17,9 @@
     
 <head>
 <body>
+    
     <!-- landing 최상단 -->
     {% include 'flow.html' %}
-
     <!-- landing -->
     <div class="container">
         <div class="row">
@@ -50,80 +50,45 @@
                 </div>
 
                 <div class="howmuch" onload="numberCounter">
-                    <p class="grad">졸업생 수 0명</p>
+                    <p class="grad">졸업생 수 236명</p>
                     </p>
-                    <p class="prj">등록된 작품 수 0개</p>
-                    </p>
+                    <div class="prj">
+                    <p>등록된 작품 수 {{ post.count }}개</p>
+                    <p style="font-size:5px">*2021년 이후 기준</p>
+                    </div>
                 </div>
             </div>
         </div>
+
     </div>
     <!-- main -->
     <div class="container" id="main-scroll">
-        
         <!-- 태그 표시 -->
         <section class="py-5 text-center" id="main-scroll1">
             <div class="row py-lg-5">
                 <div class="col-lg-7 mx-auto">
                     <div>
+                        <div class="category">
+                            {% for c in category %}
+                            <a href="{{ c.get_absolute_url }}">
+                                <button class="category_btn">
+                                    <b>{{ c }}</b>
+                                </button>
+                            </a>
+                            {% endfor %}
+                        </div> 
+                        <br>
                         <div class="tag">
-                            <a href="http://127.0.0.1:8000/landing/about/">
+                            {% for tag in tag.all %}
+                            {% if tag.name == "app" or tag.name == "web" or tag.name == "python" or tag.name == "c" or tag.name == "java" or tag.name == "c++" or tag.name == "kotlin" or tag.name == "django" or tag.name == "node.js" or tag.name == "spring boot" or tag.name == "swift" or tag.name == "react" %}
+                            <a href="{% url 'tag_page' tag %}">
                                 <button class="tag_btn">
-                                    #App
+                                    <b>{{ tag }}</b>
                                 </button>
                             </a>
-                            <a href="https://www.naver.com/">
-                                <button class="tag_btn" >
-                                    #Web
-                                </button>
-                            </a>
-                            <a href="https://www.naver.com/">
-                                <button class="tag_btn" >
-                                    #Python
-                                </button>
-                            </a>
-                            <a href="https://www.naver.com/">
-                                <button class="tag_btn" >
-                                    #C
-                                </button>
-                            </a>
-                            <a href="https://www.naver.com/">
-                                <button class="tag_btn" >
-                                    #Java
-                                </button>
-                            </a>
-                            <a href="https://www.naver.com/">
-                                <button class="tag_btn" >
-                                    #C++
-                                </button>
-                            </a>
-                            <a href="https://www.naver.com/">
-                                <button class="tag_btn" >
-                                    #Kotlin
-                                </button>
-                            </a>
-                            <a href="https://www.naver.com/">
-                                <button class="tag_btn" >
-                                    #태그6
-                                </button>
-                            </a>
-                            <a href="https://www.naver.com/">
-                                <button class="tag_btn" >
-                                    #태그7
-                                </button>
-                            </a>
-                            <div class="tag">
-                                {% for tag in tag.all %}
-                                {% if tag.name == "app" or tag.name == "web" or tag.name == "python" or tag.name == "c" or tag.name == "java" or tag.name == "c++" or tag.name == "kotlin" or tag.name == "django" or tag.name == "node.js" or tag.name == "spring boot" or tag.name == "swift" or tag.name == "react" %}
-                                <a href="{% url 'tag_page' tag %}">
-                                    <button class="tag_btn" >
-                                        {{ tag }}
-                                    </button>
-                                </a>
-                                {% endif %}
-                                {% endfor %}
-                            </div>
-                        </div>
+                            {% endif %}
+                            {% endfor %}
+                        </div>    
                     </div>
                 </div>
             </div>
@@ -133,89 +98,22 @@
         <div class="album py-5 bg-black">
             <div class="container">
                 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                    {% for p in post %}
                     <div class="col">
                         <div class="card shadow-sm">
-                            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
-                                <title>Placeholder</title>
-                                <rect width="100%" height="100%" fill="#55595c"/>
-                                <text x="50%" y="50%" fill="#eceeef" dy=".3em">작품정보</text>
-                            </svg>
+                            <img class="bd-placeholder-img card-img-top" vgwidth="100%" height="225" src="{{ p.img.url }}" width="100%" height="225" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice"
+                            focusable="false" >
+                            <title>Placeholder</title>
+                            <a href="{% url 'board_detail' pk=p.pk %}">
+                            <text><b>{{ p.title }}</b></text>
+                            <text><button class="category_btn1"><b>{{ p.category }}</b></button></text>
+                            {% for tag in p.Tag.iterator %}
+                                <text><button class="tag_btn1"><b>{{ tag }}</b></button></text>
+                            {% endfor %}
+                            </a>
                         </div>
                     </div>
-                    <div class="col">
-                        <div class="card shadow-sm">
-                            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
-                                <title>Placeholder</title>
-                                <rect width="100%" height="100%" fill="#55595c"/>
-                                <text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
-                            </svg>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card shadow-sm">
-                            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
-                                <title>Placeholder</title>
-                                <rect width="100%" height="100%" fill="#55595c"/>
-                                <text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
-                            </svg>
-                        </div>
-                    </div>
-
-                    <div class="col">
-                        <div class="card shadow-sm">
-                            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
-                                <title>Placeholder</title>
-                                <rect width="100%" height="100%" fill="#55595c"/>
-                                <text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
-                            </svg>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card shadow-sm">
-                            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
-                                <title>Placeholder</title>
-                                <rect width="100%" height="100%" fill="#55595c"/>
-                                <text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
-                            </svg>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card shadow-sm">
-                            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
-                                <title>Placeholder</title>
-                                <rect width="100%" height="100%" fill="#55595c"/>
-                                <text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
-                            </svg>
-                        </div>
-                    </div>
-
-                    <div class="col">
-                        <div class="card shadow-sm">
-                            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
-                                <title>Placeholder</title>
-                                <rect width="100%" height="100%" fill="#55595c"/>
-                                <text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
-                            </svg>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card shadow-sm">
-                            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
-                                <title>Placeholder</title>
-                                <rect width="100%" height="100%" fill="#55595c"/>
-                                <text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
-                            </svg>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card shadow-sm">
-                            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
-                                <title>Placeholder</title>
-                                <rect width="100%" height="100%" fill="#55595c"/>
-                                <text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
-                            </svg>
-                        </div>
-                    </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>

@@ -9,7 +9,8 @@ def main(request):
     post = Post.objects.all()
     category = Category.objects.all()
     tag = Tag.objects.all()
-    return render(request, 'main.html',{'post':post,'category':category, 'tag':tag})
+    count = Post.objects.count()
+    return render(request, 'main.html',{'post':post,'category':category, 'tag':tag, 'count':count })
 
 
 def board_post(request):
@@ -79,8 +80,8 @@ def scrap_list(request):
     user = request.user
     return render(request, 'mypage.html', {'user':user})
     
-def category_page(request, slug):
-    category = Category.objects.get(slug=slug)
+def category_page(request, name):
+    category = Category.objects.get(name=name)
 
     return render(
         request,
@@ -148,7 +149,11 @@ def vote_result(request):
     return render(request, 'vote_result.html', {'post':post})
 
 def landing(request):
-    return render(request, 'landing.html')
+    post = Post.objects.all()
+    category = Category.objects.all()
+    tag = Tag.objects.all()
+    count = Post.objects.count()
+    return render(request, 'landing.html',{'post':post,'category':category, 'tag':tag, 'count':count})
 
 def about(request):
     return render(request, 'about.html')
