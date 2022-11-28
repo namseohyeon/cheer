@@ -317,3 +317,18 @@ footer {
 .dsce_web a {
     color: #981b45;
 }
+.float {
+    height: 80px;
+    width: 80px;
+    text-align: center;
+    position: fixed;
+    bottom: 80px;
+    color: white;
+    font-size: 50px;
+    text-decoration: none;
+    border-radius: 100px;
+    background-color: #af596a;
+    color: #981b45;
+    margin-left: 50px;
+    right:50px;
+}
