@@ -9,6 +9,8 @@
     <link href="{% static 'mainapp/bootstrap4/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css" media="screen"></link>
     <link href="{% static 'mainapp/css/styles.css' %}" rel="stylesheet" />
     <link href="{% static 'mainapp/css/customstyles.css' %}" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
 
     <!-- google fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -51,16 +53,13 @@
 
                 <div class="howmuch" onload="numberCounter">
                     <p class="grad">졸업생 수 236명</p>
-                    </p>
-                    <div class="prj">
-                    <p>등록된 작품 수 {{ post.count }}개</p>
-                    <p style="font-size:5px">*2021년 이후 기준</p>
-                    </div>
+                    <p class="prj">등록된 작품 수 {{ post.count }}개</p>
+                    <p class="standard">* 2021년 이후 기준</p>
                 </div>
             </div>
         </div>
-
     </div>
+
     <!-- main -->
     <div class="container" id="main-scroll">
         <!-- 태그 표시 -->
@@ -104,7 +103,7 @@
                             <img class="bd-placeholder-img card-img-top" vgwidth="100%" height="225" src="{{ p.img.url }}" width="100%" height="225" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice"
                             focusable="false" >
                             <title>Placeholder</title>
-                            <a href="{% url 'board_detail' pk=p.pk %}">
+                            <a href="{% url 'board_detail' pk=p.pk %}" style="color: #fff;">
                             <text><b>{{ p.title }}</b></text>
                             <text><button class="category_btn1"><b>{{ p.category }}</b></button></text>
                             {% for tag in p.Tag.iterator %}
@@ -118,9 +117,13 @@
             </div>
         </div>
     </div>
+
     {% if user.is_authenticated %}
-    <div class="float"><a href="{% url 'board_post' %}" style="color: inherit;text-decoration-line: none;">+</a></div>
+    <div class="float">
+        <a href="{% url 'board_post' %}">+</a>
+    </div>
     {% endif %}
+
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>

@@ -76,6 +76,7 @@ body {background-color: #000}
 ul li {
     width: 120px;
 }
+
 .nav-link:link {
     font-family: 'Noto Sans KR', sans-serif;
     color: white;
@@ -164,6 +165,13 @@ ul li {
   animation-delay: 8.5s;
   opacity: 0;
   font-family: 'Nanum Gothic Coding', monospace;
+}
+.standard {
+    animation: fadeIn ease 5s forwards;
+    font-size: 5px;
+    animation-delay: 11.5s;
+    opacity: 0;
+    font-family: 'Nanum Gothic Coding', monospace;
 }
 @keyframes fadeIn {
    to {
@@ -292,6 +300,32 @@ footer {
     font-family: 'Noto Sans KR', sans-serif;
     font-size: 0.875rem;
 }
+/*
+.write {
+	position: fixed;
+	bottom: 1000px;
+	right: calc(27% - 300px);
+	width: 40px;
+	height: 40px;
+	border: 1px solid #981b45;
+	border-radius: 50%;
+	background: #eee url(./images/ico_package_2x.png) no-repeat -200px -400px;
+
+}
+.page-top {
+	position: fixed;
+	bottom: 50px;
+	right: calc(27% - 300px);
+	width: 40px;
+	height: 40px;
+	border: 1px solid #981b45;
+	border-radius: 50%;
+	background: #981b45 url(./images/ico_package_2x.png) no-repeat -200px -400px;
+	text-indent: -999em; /*top이라는 글씨가 안 보이게 됨
+} */
+
+
+
 
 /* about.html */
 .ds_img img {
@@ -317,14 +351,17 @@ footer {
 .dsce_web a {
     color: #981b45;
 }
+
+/* floating 버튼 */
 .float {
-    height: 80px;
-    width: 80px;
+  display:table;
+
+    height: 60px;
+    width: 60px;
     text-align: center;
     position: fixed;
-    bottom: 80px;
-    color: white;
-    font-size: 50px;
+    bottom: 60px;
+    font-size: 40px;
     text-decoration: none;
     border-radius: 100px;
     background-color: #af596a;
@@ -332,3 +369,10 @@ footer {
     margin-left: 50px;
     right:50px;
 }
+.float a {
+    color: inherit;
+    text-decoration-line: none;
+    display:table-cell;
+    vertical-align:middle;
+}
+
