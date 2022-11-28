@@ -147,10 +147,9 @@ def vote_result(request):
     post = Post.objects.all().order_by('-count')
     return render(request, 'vote_result.html', {'post':post})
 
-
-
 def landing(request):
     return render(request, 'landing.html')
 
 def about(request):
     return render(request, 'about.html')
+
