@@ -20,6 +20,6 @@ urlpatterns = [
     path('vote_to/', views.vote_to, name="vote_to"),
     path('vote_result/', views.vote_result, name="vote_result"),
 
-    path('', views.landing),
+    path('', views.landing, name="main"),
     path('about/', views.about),
 ]
