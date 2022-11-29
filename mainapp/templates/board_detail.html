@@ -52,11 +52,10 @@
                         {% endblock %}
                         <!-- Post categories -->
                         {% if post.category %}
+                        <div>
                         <a class="badge bg-secondary text-decoration-none link-light" href="{{ post.category.get_absolute_url }}">
-                            Category: {{post.category}}<br>
+                            {{post.category}}<br>
                         </a>
-                        {% else %}
-                        <a class="badge bg-secondary text-decoration-none  link-light" href="/blog/category/no_category/">미분류<br></a>
                         {% endif %}
 
                         <!--스크랩-->
@@ -79,7 +78,7 @@
                                 {% endif %}
                             </button>
                         {% endif %}
-
+                    </div>
                     <!--
                     <button type="button" class="btn btn-primary">
                         <span class="badge text-bg-secondary">({{ post.scrap.all.count }})</span>
