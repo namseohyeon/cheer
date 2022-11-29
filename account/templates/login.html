@@ -7,11 +7,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{% block head_title %} CHEER - 로그인 {% endblock %}</title>
   <link href="{% static 'account/bootstrap4/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css" media="screen">
-  <link href="{% static 'account/css/customstyles2.css' %}" rel="stylesheet" />
     <link href="{% static 'account/css/customstyles.css' %}" rel="stylesheet" />
+    <link href="{% static 'account/css/customstyles2.css' %}" rel="stylesheet" />
+
     <script src="https://kit.fontawesome.com/3385a22710.js" crossorigin="anonymous"></script>
 </head>
 <body>
+
+<style css>
+    .mb-3{
+        text-align:left;
+    }
+</style>
 <!-- navbar.html 나중 추가 -->
 {% include 'flow.html' %}
 {% include 'navbar.html' %}
@@ -24,7 +31,7 @@
             <br>
             <div class="container">
                 <div class="card-body">
-                    <h4 class="text-center" id="title">로그인</h4>
+                    <h4 id="title">로그인</h4>
                     <br><br>
                     <form action="" method="post">
                         {% csrf_token %}

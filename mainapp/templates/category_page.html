@@ -40,17 +40,20 @@
                     <br>
                     <hr>
                     <br><br>
-
                         {% for p in post_list %}
+                        <a href="{% url 'board_detail' pk=p.pk %}" 
+                        style="color: #fff;">
+                        <div>
                             <h6>프로젝트 제목: </h6>
                             <a id="category_title">{{ p.title }}</a><br><br>
                             <h6>내용: </h6>
                             <a id="category_content">{{ p.content |linebreaksbr}}</a><br><br>
                             <img src="{{ p.img.url }}" width="300px">
                             <hr><br><br>
+                        </div>
+                        </a>
                         {% endfor %}
                     <br>
-
                 </div>
             </div>
             </div>

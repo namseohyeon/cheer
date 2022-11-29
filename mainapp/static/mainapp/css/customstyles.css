@@ -72,36 +72,8 @@ body {background-color: #000}
 }
 /* 오른쪽 col */
 
- /* navbar */
-ul li {
-    width: 120px;
-}
 
-.nav-link:link {
-    font-family: 'Noto Sans KR', sans-serif;
-    color: white;
-}
-.nav-link:visited {     /* :visited는 :hover보다 먼저 써야 적용됨 */
-    color: white;
-}
-.nav-link:hover {
-    color: #981b45;
-}
-.dropdown:hover .dropdown-menu {
-    display: block;
-    margin-top: 0;
-    background-color: #000;
-    color: #fff;
-}
-.dropdown-item {
-    font-family: 'Noto Sans KR', sans-serif;
-    color: #fff;
-}
-.dropdown-item:hover {
-    font-family: 'Noto Sans KR', sans-serif;
-    background-color: #000;
-    color: #981b45;
-}
+
 
     /* cheer 풀네임 + 졸업생수, 프로젝트 수 표시 */
 .fullname {
