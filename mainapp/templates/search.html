@@ -19,12 +19,14 @@
 </head>
 <body>
     {% include 'flow.html' %}
+    {% include 'navbar.html' %}
 
 
 {% if post %}
     <div class="container" style="font-family: 'Noto Sans KR', sans-serif; color: white; margin-top: 20px;">
         <h1 style="line-height: 200%;">
-            search: {{ search }}
+            검색 결과 
+            <p>{{ search }}</p>
         </h1>
 
         <div class="album py-5 bg-black">
@@ -49,26 +51,6 @@
                 </div>
             </div>
 
-        <div class="container" style="line-height: 200%;">
-            {% for p in post %}
-            <div style="display: inline-block; padding: 50px 30px 0 0; ">
-                <h2 style="line-height: 100%;">{{ p.title }}<br></h2>
-                {{ p.content }}<br>
-                <{{ p.category }}><br>
-                <img src="{{ p.img.url }}" width="300"><br>
-                {% for tag in p.Tag.iterator %}
-                <!-- #{{ tag }} &nbsp; -->
-                <button class="search_tag">
-                    <a href="{% url 'tag_page' tag %}">
-                        <b>#{{ tag }}</b>
-                    </a>
-                </button>
-                {% endfor %}
-            </div>
-
-            {% endfor %}
-
-        </div>
 
 
     </div>

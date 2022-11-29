@@ -101,10 +101,10 @@
                     {% for p in post %}
                     <div class="col">
                         <div class="card shadow-sm">
+                            <a href="{% url 'board_detail' pk=p.pk %}" style="color: #fff;">
                             <img class="bd-placeholder-img card-img-top" vgwidth="100%" height="225" src="{{ p.img.url }}" width="100%" height="225" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice"
                             focusable="false" >
                             <title>Placeholder</title>
-                            <a href="{% url 'board_detail' pk=p.pk %}" style="color: #fff;">
                             <text><b>{{ p.title }}</b></text><br>
                             <text><button class="category_btn1"><b>{{ p.category }}</b></button></text><br>
                             {% for tag in p.Tag.iterator %}
