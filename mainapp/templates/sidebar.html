@@ -1,17 +1,15 @@
 
 <div>
-    <h4 class="text-center" id="sidebar_title"><br>sogong<br>sugong</h4>
-    <h6 class="text-center" id="sidebar_name"><br>권민정<br>남서현<br>이동희<br>한진경<br></h6>
+    <h4 class="text-center" id="sidebar_title"><br>{{ post.team_name }}<br></h4>
+    <h6 class="text-center" id="sidebar_name"><br>{{ post.team_member | linebreaksbr }}<br></h6>
 </div>
 <br><br>
 
-<h5 class="text-center" id="category_title">Category:<br><br>
+<h5 class="text-center" id="category_title">Category<br><br>
     {% if post.category %}
     <a class="badge bg-secondary text-decoration-none link-light" href="{{post.category.get_absolute_url}}">
         {{post.category}}<br>
     </a>
-    {% else %}
-    <a class="badge bg-secondary text-decoration-none  link-light" href="/blog/category/no_category/">미분류<br></a>
     {% endif %}
 </h5>
 <br><br><br>

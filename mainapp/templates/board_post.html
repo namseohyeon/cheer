@@ -30,18 +30,24 @@
 
                         <br><br><br>
                         <div class="mb-3">
-                            제목: {{ form.title }}
+                            제목 {{ form.title }}
                         </div><br>
                         <div class="mb-3">
-                            내용: {{ form.content }}
+                            팀명 {{ form.team_name }}
+                        </div><br>
+                        <div class="mb-3">
+                            팀 구성원 {{ form.team_member }}
+                        </div><br>
+                        <div class="mb-3">
+                            내용 {{ form.content }}
                         </div><br>
                         <div class="mb-3">
                             <i class="fa-sharp fa-solid fa-image"></i>
-                            이미지 파일: <br>{{ form.img }}
+                            이미지 파일 <br>{{ form.img }}
                         </div><Br>
                         <div class="mb-3">
                             <i class="fa-sharp fa-solid fa-file"></i>
-                            프로젝트 파일: <br>{{ form.file }}
+                            프로젝트 파일 <br>{{ form.file }}
                         </div><br>
                         <div class="mb-3">
                             <i class="fa-solid fa-c"></i>
