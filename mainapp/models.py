@@ -35,6 +35,8 @@ class Post(models.Model):
     # user = models.ForeignKey(Account,on_delete=models.CASCADE)
     caption = models.TextField(null=True, blank=True)
     Tag = models.ManyToManyField(Tag,blank=True)
+    team_name: models.CharField(max_length=30)
+    team_member: models.CharField(max_length=30)
     
 
     scrap = models.ManyToManyField(User, blank=True, related_name='scrap_name')
