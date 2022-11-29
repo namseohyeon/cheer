@@ -10,6 +10,7 @@
     <link href="{% static 'mainapp/css/styles.css' %}" rel="stylesheet" />
     <link href="{% static 'mainapp/css/customstyles.css' %}" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/65f5e6b721.js" crossorigin="anonymous"></script>		<!-- fontawesome 사용시 필요 -->
 
 
     <!-- google fonts -->
@@ -17,7 +18,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding:wght@700&family=Nanum+Myeongjo:wght@400;800&family=Noto+Sans+KR:wght@500;700;900&family=Noto+Serif+KR&family=Shrikhand&family=Song+Myung&display=swap" rel="stylesheet">
     
-<head>
+</head>
 <body>
     
     <!-- landing 최상단 -->
@@ -104,10 +105,10 @@
                             focusable="false" >
                             <title>Placeholder</title>
                             <a href="{% url 'board_detail' pk=p.pk %}" style="color: #fff;">
-                            <text><b>{{ p.title }}</b></text>
-                            <text><button class="category_btn1"><b>{{ p.category }}</b></button></text>
+                            <text><b>{{ p.title }}</b></text><br>
+                            <text><button class="category_btn1"><b>{{ p.category }}</b></button></text><br>
                             {% for tag in p.Tag.iterator %}
-                                <text><button class="tag_btn1"><b>{{ tag }}</b></button></text>
+                                <text><button class="tag_btn1"><b>#{{ tag }}</b></button></text>
                             {% endfor %}
                             </a>
                         </div>

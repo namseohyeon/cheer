@@ -348,3 +348,19 @@ footer {
     vertical-align:middle;
 }
 
+/* search.html */
+.search_tag {
+    font-size: .8em;
+    border: none;
+    padding: 2px 7px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 10px;
+    cursor: pointer;
+    border-radius: 16px;
+}
+.search_tag a{
+    color: black;
+}
+

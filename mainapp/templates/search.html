@@ -1,18 +1,66 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>cheer 검색결과</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="{% static 'mainapp/bootstrap4/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css" media="screen"></link>
+    <link href="{% static 'mainapp/css/styles.css' %}" rel="stylesheet" />
+    <link href="{% static 'mainapp/css/customstyles.css' %}" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/65f5e6b721.js" crossorigin="anonymous"></script>		<!-- fontawesome 사용시 필요 -->
+
+
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding:wght@700&family=Nanum+Myeongjo:wght@400;800&family=Noto+Sans+KR:wght@500;700;900&family=Noto+Serif+KR&family=Shrikhand&family=Song+Myung&display=swap" rel="stylesheet">
+</head>
+<body>
+    {% include 'flow.html' %}
+
+
 {% if post %}
-<h1> seach: {{ search }} </h1>  
-{% for p in post %}
-     
-    {{ p.title }}<br>
-    {{ p.content }}<br>
-    {{ p.category }}<br>
-    <img src="{{ p.img.url }}" width="300"><br>
-    {% for tag in p.Tag.iterator %}
-        {{ tag }}<br>
-    {% endfor %}
-{% endfor %}
+    <div class="container" style="font-family: 'Noto Sans KR', sans-serif; color: white; margin-top: 20px;">
+        <h1 style="line-height: 200%;">
+            search: {{ search }}
+        </h1>
+        <div class="container" style="line-height: 200%;">
+            {% for p in post %}
+            <div style="display: inline-block; padding: 50px 30px 0 0; ">
+                <h2 style="line-height: 100%;">{{ p.title }}<br></h2>
+                {{ p.content }}<br>
+                <{{ p.category }}><br>
+                <img src="{{ p.img.url }}" width="300"><br>
+                {% for tag in p.Tag.iterator %}
+                <!-- #{{ tag }} &nbsp; -->
+                <button class="search_tag">
+                    <a href="{% url 'tag_page' tag %}">
+                        <b>#{{ tag }}</b>
+                    </a>
+                </button>
+                {% endfor %}
+            </div>
+
+            {% endfor %}
+        </div>
+
+
+    </div>
 <br>
-{% else %}        
-<h1> {{ search }}라는 게시물은 존재하지 않습니다. </h1>
+{% else %}
+    <div class="container" style="font-family: 'Noto Sans KR', sans-serif; color: white; margin-top: 20px;">
+        <h1 style="line-height: 200%;">
+            search: {{ search }}
+        </h1>
+
+        <h1 style="text-align: center; margin-top: 18%; font-size: 2em">
+            '{{ search }}'라는 게시물은 존재하지 않습니다.
+        </h1>
+    </div>
+
 {% endif %}
 
 <!-- 'title':title, 'content':content, 'category':category, 'tag':tag -->
+</body>
