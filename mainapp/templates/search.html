@@ -26,6 +26,7 @@
         <h1 style="line-height: 200%;">
             search: {{ search }}
         </h1>
+
         <div class="album py-5 bg-black">
             <div class="container">
                 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
@@ -47,6 +48,26 @@
                     {% endfor %}
                 </div>
             </div>
+
+        <div class="container" style="line-height: 200%;">
+            {% for p in post %}
+            <div style="display: inline-block; padding: 50px 30px 0 0; ">
+                <h2 style="line-height: 100%;">{{ p.title }}<br></h2>
+                {{ p.content }}<br>
+                <{{ p.category }}><br>
+                <img src="{{ p.img.url }}" width="300"><br>
+                {% for tag in p.Tag.iterator %}
+                <!-- #{{ tag }} &nbsp; -->
+                <button class="search_tag">
+                    <a href="{% url 'tag_page' tag %}">
+                        <b>#{{ tag }}</b>
+                    </a>
+                </button>
+                {% endfor %}
+            </div>
+
+            {% endfor %}
+
         </div>
 
 
@@ -57,6 +78,9 @@
         <h1 style="line-height: 200%;">
             search: {{ search }}
         </h1>
+
+
+
         <h1 style="text-align: center; margin-top: 18%; font-size: 2em">
             '{{ search }}'라는 게시물은 존재하지 않습니다.
         </h1>
