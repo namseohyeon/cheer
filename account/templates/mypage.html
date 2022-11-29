@@ -36,22 +36,26 @@
                         <br><br>
                             <h5>스크랩 목록</h5>
                         {% for p in user.scrap_name.all %}
+                        <div>
                             <a href="{% url 'board_detail' pk=p.pk %}">
                                 <!--title 앞에 아이콘아니면 -, . 이런거-->
                                 <div id="scrap_title">
+                                    <div>
                                     <i class="fa-regular fa-bookmark"></i>
-                                    {{ p.title }}
+                                    {{ p.team_name }}</div>
+                                    <div><img src="{{ p.img.url }}" width="200px" height="200px"></div>
+                                    {{ p.title | linebreaks }}
+                                    
                                 </div>
                             </a>
-                            <br>
+                        </div>
                         {% endfor %}
                         <br>
 
                         <h5>투표내역</h5>
-                        <h6>제목: </h6>
                         <a id="vote_title">{{ user.vote.title | linebreaksbr }}</a><br><br>
-                        <h6>내용: </h6>
-                        <a id="vote_content">{{ user.vote.content | linebreaksbr }}</a><br>
+                        
+                        <div><img src="{{ user.vote.img.url }}" width="200px" height="200px" ></div>
                     {% else %}
                     <h1 class="text-center" id="login_req">
                         <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
