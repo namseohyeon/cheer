@@ -81,21 +81,7 @@ ul li {
 .nav-link:hover {
     color: #981b45;
 }
-.dropdown:hover .dropdown-menu {
-    display: block;
-    margin-top: 0;
-    background-color: #000;
-    color: #fff;
-}
-.dropdown-item {
-    font-family: 'Noto Sans KR', sans-serif;
-    color: #fff;
-}
-.dropdown-item:hover {
-    font-family: 'Noto Sans KR', sans-serif;
-    background-color: #000;
-    color: #981b45;
-}
+
 #save_career {
     color: #fff;
     text-align: right;

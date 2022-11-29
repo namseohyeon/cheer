@@ -24,6 +24,12 @@
     #sidebar_info{
         border-right:4px solid #fff
     }
+    .comment_h4{
+        text-align:left;
+    }
+    .text_muted{
+        text-align:left;
+    }
 
 </style>
 
@@ -152,7 +158,7 @@
                                                     <div class="flex-shrink-0"><img src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." /></div>
                                                 </div>
                                                 <div class="col-md-11">
-                                                    <div class="fw-bold" style="color:#852840">
+                                                    <div class="fw-bold" style="color:#852840; text-align:left">
                                                         {{c.user.name}}
                                                         <small class="text_muted">
                                                         {% if c.created_at != c.modified_at %}
@@ -162,14 +168,12 @@
                                                          {% endif %}</small>
                                                         <small class="float-right">
                                                             {% if user == c.user %}
-                                                                <a href="{% url 'comment_update' pk=c.pk %}" style="color:#852840">
-                                                                    수정
-                                                                </a>
+                                                                <a href="{% url 'comment_update' pk=c.pk %}" style="color:#852840">수정</a>
                                                                 <a href="{% url 'comment_delete' pk=c.pk %}" style="color:#852840">삭제</a>
                                                             {% endif %}
                                                         </small>
                                                     </div>
-                                                    <p style="color:#000">{{c.content}}</p>
+                                                    <p style="color:#000; text-align:left">{{c.content}}</p>
 
                                                     <hr>
                                                 </div>
