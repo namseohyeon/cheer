@@ -224,7 +224,7 @@ body {background-color: #000}
 .card text {
     opacity: 0;
 }
-.card:hover text {
+.card text {
     opacity: 1;
     color:black;
     weight:bold;

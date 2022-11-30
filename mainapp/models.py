@@ -3,7 +3,7 @@ from account.models import User
 import re
 # Create your models here.
 class Tag(models.Model):
-    name=models.CharField(max_length=10)
+    name=models.CharField(max_length=30)
     # slug = models.SlugField(max_length=200, unique=True, allow_unicode=True)
 
     def __str__(self) : 

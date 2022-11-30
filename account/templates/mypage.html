@@ -32,30 +32,56 @@
                         <h6 class="text-center">{{ user.name }}님, CHEER 전시회에 방문하신 것을 환영합니다!</h6>
                     </h4>
                       <hr>
-
-                        <br><br>
-                            <h5>스크랩 목록</h5>
-                        {% for p in user.scrap_name.all %}
-                        <div>
-                            <a href="{% url 'board_detail' pk=p.pk %}">
-                                <!--title 앞에 아이콘아니면 -, . 이런거-->
-                                <div id="scrap_title">
-                                    <div>
-                                    <i class="fa-regular fa-bookmark"></i>
-                                    {{ p.team_name }}</div>
-                                    <div><img src="{{ p.img.url }}" width="200px" height="200px"></div>
-                                    {{ p.title | linebreaks }}
-                                    
+                      <h5>스크랩 목록</h5>
+                        <div class="album py-5 bg-black">
+                            <div class="container">
+                                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                                    {% for p in user.scrap_name.all %}
+                                    <div class="col">
+                                        <div class="card shadow-sm">
+                                            <a href="{% url 'board_detail' pk=p.pk %}" style="color: #fff;">
+                                            <img class="bd-placeholder-img card-img-top" vgwidth="100%" height="225" src="{{ p.img.url }}" width="100%" height="225" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice"
+                                            focusable="false" >
+                                            <title>Placeholder</title>
+                                            <text><b>{{ p.title }}</b></text><br>
+                                            <text><button class="category_btn1"><b>{{ p.category }}</b></button></text><br>
+                                            {% for tag in p.Tag.iterator %}
+                                                <text><button class="tag_btn1"><b>#{{ tag }}</b></button></text>
+                                            {% endfor %}
+                                            </a>
+                                        </div>
+                                    </div>
+                                    {% endfor %}
                                 </div>
-                            </a>
+                            </div>
                         </div>
-                        {% endfor %}
                         <br>
 
                         <h5>투표내역</h5>
-                        <a id="vote_title">{{ user.vote.title | linebreaksbr }}</a><br><br>
                         
-                        <div><img src="{{ user.vote.img.url }}" width="200px" height="200px" ></div>
+                    <div class="album py-5 bg-black">
+                        <div class="container">
+                            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                                
+                                <div class="col">
+                                    <div class="card shadow-sm">
+                                        <img class="bd-placeholder-img card-img-top" vgwidth="100%" height="225" src="{{ user.vote.img.url }}" width="100%" height="225" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice"
+                                        focusable="false" >
+                                        <text><b>{{ user.vote.title }}</b></text><br>
+                                        <text><button class="category_btn1"><b>{{ user.vote.category }}</b></button></text><br>
+                                        {% for tag in user.vote.Tag.iterator %}
+                                            <text><button class="tag_btn1"><b>#{{ tag }}</b></button></text>
+                                        {% endfor %}
+                                        </a>
+                                    </div>
+                                </div>
+                               
+                            </div>
+                        </div>
+                    </div>
+                <br>
+
+            </div>
                     {% else %}
                     <h1 class="text-center" id="login_req">
                         <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
@@ -63,9 +89,7 @@
                     <a role="button" class="btn btn-block btn-sm" href="{% url 'login' %}">
                         로그인</a>
                     {% endif %}
-                    <br>
 
-                </div>
             </div>
             </div>
         </div>
