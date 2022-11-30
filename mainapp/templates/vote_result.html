@@ -51,7 +51,7 @@
                             <tr>
                                 <td>
                                     <a href="{% url 'board_detail' pk=p.pk %}">
-                                        <span class="vote_title card-title" style="color:#852845">{{ p.title }}</span>
+                                        <span class="vote_title card-title" style="color:#852845">{{ p.team_name }} <br>{{ p.title }}</span>
                                     </a>
                                 </td>
                                 <td>{{ p.count }}</td>
