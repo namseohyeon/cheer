@@ -3,7 +3,7 @@ from account.models import User
 import re
 # Create your models here.
 class Tag(models.Model):
-    name=models.CharField(max_length=10)
+    name=models.CharField(max_length=30)
     # slug = models.SlugField(max_length=200, unique=True, allow_unicode=True)
 
     def __str__(self) : 
@@ -26,7 +26,9 @@ class Category(models.Model):
         return f'/mainapp/category/{self.slug}/'
 
 class Post(models.Model):
-    title = models.CharField(max_length=30)
+    title = models.CharField(max_length=100)
+    team_name = models.CharField(max_length=30, null=False)
+    team_member = models.TextField(max_length=100, null=False)
     content = models.TextField()
     img = models.ImageField(blank=True, null=True, upload_to='cheer_photo/%y/%m/%d/')
     file = models.FileField(blank=True, null=True, upload_to='cheer_file/%y/%m/%d/')
@@ -35,12 +37,12 @@ class Post(models.Model):
     # user = models.ForeignKey(Account,on_delete=models.CASCADE)
     caption = models.TextField(null=True, blank=True)
     Tag = models.ManyToManyField(Tag,blank=True)
-    team_name: models.CharField(max_length=30)
-    team_member: models.CharField(max_length=30)
     
 
     scrap = models.ManyToManyField(User, blank=True, related_name='scrap_name')
     count = models.IntegerField(default=0)
+    
+    
     def __str__(self):
         return self.title
 

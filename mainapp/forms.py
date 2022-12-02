@@ -4,12 +4,17 @@ from .models import Post, Comment
 class PostForm(forms.ModelForm):
     class Meta:
         model = Post
-        fields = ('title', 'content','img','file','category','caption')
+        fields = ('title', 'team_name', 'team_member', 'content','img','file','category','caption')
         widgets = {
             "title": forms.TextInput(attrs={
                 'placeholder': '프로젝트 제목을 작성해주세요',
             }),
-
+            "team_name": forms.TextInput(attrs={
+                'placeholder': '팀 이름을 작성해주세요',
+            }),
+            "team_member": forms.Textarea(attrs={
+                'placeholder': '팀 구성원을 작성해주세요',
+            }), 
             "category": forms.Select(attrs={
                 'class': 'form-control',
                 'rows': '1'

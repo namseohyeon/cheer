@@ -29,22 +29,52 @@
                         {% if tag %}<span class="badge bg-secondary float-end">#{{ tag }}</span>{% endif %}
                     </h4>
                     <br>
-                    <hr>
-                    <br><br>
+                    <hr>                     
 
-                        {% for p in post_list %}
-                            <a href="{% url 'board_detail' pk=p.pk %}" 
-                            style="color: #fff;">
-                            <div>
-                                <h6>프로젝트 제목: </h6>
-                                <a id="tag_title">{{ p.title }}</a><br><br>
-                                <h6>내용: </h6>
-                                <a id="tag_content">{{ p.content |linebreaksbr}}</a><br><br>
-                                <img src="{{ p.img.url }}" width="300px">
-                                <hr><br><br>
+                        <div class="album py-5 bg-black">
+                            <div class="container">
+                                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                                    {% for p in post_list %}
+                                    <div class="col">
+                                        <div class="card shadow-sm">
+                                            <a href="{% url 'board_detail' pk=p.pk %}" style="color: #fff;">
+                                            <img class="bd-placeholder-img card-img-top" vgwidth="100%" height="225" src="{{ p.img.url }}" width="100%" height="225" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice"
+                                            focusable="false" >
+                                            <title>Placeholder</title>
+                                            <text><b>{{ p.title }}</b></text><br>
+                                            <text><button class="category_btn1"><b>{{ p.category }}</b></button></text><br>
+                                            {% for tag in p.Tag.iterator %}
+                                                <text><button class="tag_btn1"><b>#{{ tag }}</b></button></text>
+                                            {% endfor %}
+                                            </a>
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+                                </div>
                             </div>
+                        </div>
+                            <div class="album py-5 bg-black">
+            <div class="container">
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                    {% for p in post %}
+                    <div class="col">
+                        <div class="card shadow-sm">
+                            <a href="{% url 'board_detail' pk=p.pk %}" style="color: #fff;">
+                            <img class="bd-placeholder-img card-img-top" vgwidth="100%" height="225" src="{{ p.img.url }}" width="100%" height="225" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice"
+                            focusable="false" >
+                            <title>Placeholder</title>
+                            <text><b>{{ p.title }}</b></text><br>
+                            <text><button class="category_btn1"><b>{{ p.category }}</b></button></text><br>
+                            {% for tag in p.Tag.iterator %}
+                                <text><button class="tag_btn1"><b>#{{ tag }}</b></button></text>
+                            {% endfor %}
                             </a>
-                        {% endfor %}
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
                     <br>
 
                 </div>

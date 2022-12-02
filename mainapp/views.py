@@ -149,7 +149,7 @@ def vote_result(request):
     return render(request, 'vote_result.html', {'post':post})
 
 def landing(request):
-    post = Post.objects.all()
+    post = Post.objects.all().order_by('-date')
     category = Category.objects.all()
     tag = Tag.objects.all()
     count = Post.objects.count()

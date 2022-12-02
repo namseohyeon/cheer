@@ -19,13 +19,16 @@
 </head>
 <body>
     {% include 'flow.html' %}
+    {% include 'navbar.html' %}
 
 
 {% if post %}
     <div class="container" style="font-family: 'Noto Sans KR', sans-serif; color: white; margin-top: 20px;">
         <h1 style="line-height: 200%;">
-            search: {{ search }}
+            검색 결과 
+            <p>{{ search }}</p>
         </h1>
+
         <div class="album py-5 bg-black">
             <div class="container">
                 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
@@ -47,7 +50,7 @@
                     {% endfor %}
                 </div>
             </div>
-        </div>
+
 
 
     </div>
@@ -57,6 +60,9 @@
         <h1 style="line-height: 200%;">
             search: {{ search }}
         </h1>
+
+
+
         <h1 style="text-align: center; margin-top: 18%; font-size: 2em">
             '{{ search }}'라는 게시물은 존재하지 않습니다.
         </h1>
