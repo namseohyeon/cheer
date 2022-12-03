@@ -268,9 +268,13 @@ body {background-color: #000}
 } */
 
 /* footer.html */
-footer {
+footer .container{
     font-family: 'Noto Sans KR', sans-serif;
     font-size: 0.875rem;
+    padding-bottom: 10px;
+}
+.footer-email {
+    font-size: 0.7rem;
 }
 /*
 .write {
@@ -312,7 +316,6 @@ footer {
     color: white;
 }
 .major {
-    font-weight: bold;
     padding-top: 3%;
     margin-left: 5%;
 }

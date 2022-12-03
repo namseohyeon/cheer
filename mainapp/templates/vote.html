@@ -5,45 +5,39 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CHEER</title>
+  <title>CHEER 투표ㅛ</title>
   <link href="{% static 'mainapp/bootstrap4/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css" media="screen">
     <link href="{% static 'mainapp/css/customstyles.css' %}" rel="stylesheet" />
     <link href="{% static 'mainapp/css/customstyles2.css' %}" rel="stylesheet" />
-  <script src="https://kit.fontawesome.com/3385a22710.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/3385a22710.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding:wght@700&family=Nanum+Myeongjo:wght@400;800&family=Noto+Sans+KR:wght@500;700;900&family=Noto+Serif+KR&family=Shrikhand&family=Song+Myung&display=swap" rel="stylesheet">
+
 </head>
 <body>
-<style css>
-    h6{
-        color:#808080;
-        font-size:0.9rem
-    }
-
-
-
-</style>
-
 {% include 'flow.html' %}
 {% include 'navbar.html' %}
 <br>
-    <div class="container">
+    <div class="container" style="font-family: 'Noto Sans KR', sans-serif;">
         <div class="row">
         <div class="col align-self-center">
-            <div class="card mb-6" id="signup_card">
-            <br>
+            <div class="card mb-6 " id="signup_card">
             <div class="container">
                 <div class="card-body">
-                    <h4 class="text-center" id="title">
-                        VOTE<br><br>
+                    <h4 class="text-center" id="title" style="color:#981b45">
+                        VOTE<br>
                     </h4>
                     {% if user.is_authenticated %}
                         <div id="sub_title">
-                            <h6 class="text-center">{{ user.name | upper }}님이 생각하는 최고의 프로젝트에 투표해주세요!</h6><br>
+                            <h6 class="text-center" style="color:#fff; font-size: 1.1em;">
+                                {{ user.name | upper }}님이 생각하는 최고의 프로젝트에 투표해주세요!
+                            </h6>
+                            <hr style="background: #000; height: 2px; border: 0;">
                         </div>
                         <form action="{% url 'vote_to' %}" method="POST">
                         {% csrf_token %}
                                 <div class="row row-cols-4 align-self-center" style="width: 130.5%">
                                     {% for p in post %}
-                                        <div class="card border border-danger" style="width: 20rem;">
+                                        <div class="card border border-dark" style="width: 20rem;">
                                             <div class="card-header">
                                                 <input type="radio" name="choice" value="{{ p.id }}"/>
                                                 <a href="{% url 'board_detail' pk=p.pk %}">
@@ -61,12 +55,14 @@
 
                         <br>
                         {% if user.vote != None %}
-                                <p><input class="btn btn btn-primary btn-block btn-sm"
-                                          type="submit" value="투표하기" onclick="alert('투표를 이미 완료하였습니다.')"></input></p>
+                                <p><input class="btn btn btn-block btn-sm"
+                                          type="submit" value="투표하기" onclick="alert('투표를 이미 완료하였습니다.')"
+                                        style="background-color: #981b45; color: white;" ></input></p>
 
                         {% else %}
-                                <p><input class="btn btn btn-primary btn-block btn-sm"
-                                          type="submit" value="투표하기" onclick="alert('투표를 완료했습니다.')"></input></p>
+                                <p><input class="btn btn btn-block btn-sm"
+                                          type="submit" value="투표하기" onclick="alert('투표를 완료했습니다.')"
+                                    style="background-color: #981b45; color: white;"></input></p>
 
                         {% endif %}
                         </form>
