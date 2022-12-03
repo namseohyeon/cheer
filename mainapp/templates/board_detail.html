@@ -13,14 +13,14 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;800&family=Noto+Sans+KR:wght@500;700;900&family=Song+Myung&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding:wght@700&family=Nanum+Myeongjo:wght@400;800&family=Noto+Sans+KR:wght@500;700;900&family=Noto+Serif+KR&family=Shrikhand&family=Song+Myung&display=swap" rel="stylesheet">
 
 </head>
-<body>
+<body style="font-family: 'Noto Sans KR', sans-serif;">
 {% include 'flow.html' %}
 {% include 'navbar.html' %}
 
-<style css>
+<style>
     #sidebar_info{
         border-right:4px solid #fff
     }
@@ -30,7 +30,6 @@
     .text_muted{
         text-align:left;
     }
-
 </style>
 
 
@@ -53,7 +52,8 @@
                         <!-- Post categories -->
                         {% if post.category %}
                         <div>
-                        <a class="badge bg-secondary text-decoration-none link-light" href="{{ post.category.get_absolute_url }}">
+                        <a class="badge text-decoration-none " href="{{ post.category.get_absolute_url }}"
+                            style="background-color: #af596a;">
                             {{post.category}}<br>
                         </a>
                         {% endif %}
@@ -121,7 +121,7 @@
                 <i class="fas fa-tag"></i>
                 {% for tag in post.Tag.all %}
                     <span class="badge badge-pill badge-light">
-                        <a href="{% url 'tag_page' tag %}" style="color:#852840">
+                        <a href="{% url 'tag_page' tag %}" style="color:#981b45;">
                             #{{ tag }}
                         </a>
                     </span>

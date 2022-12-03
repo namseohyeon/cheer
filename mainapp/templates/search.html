@@ -24,8 +24,8 @@
 
 {% if post %}
     <div class="container" style="font-family: 'Noto Sans KR', sans-serif; color: white; margin-top: 20px;">
-        <h1 style="line-height: 200%;">
-            검색 결과 
+        <h1 style="line-height: 150%;">
+            검색 결과
             <p>{{ search }}</p>
         </h1>
 
@@ -57,13 +57,14 @@
 <br>
 {% else %}
     <div class="container" style="font-family: 'Noto Sans KR', sans-serif; color: white; margin-top: 20px;">
-        <h1 style="line-height: 200%;">
-            search: {{ search }}
+        <h1 style="line-height: 150%;">
+            검색 결과
+            <p>{{ search }}</p>
         </h1>
 
 
 
-        <h1 style="text-align: center; margin-top: 18%; font-size: 2em">
+        <h1 style="text-align: center; margin: 10%; font-size: 1em;">
             '{{ search }}'라는 게시물은 존재하지 않습니다.
         </h1>
     </div>
@@ -71,4 +72,6 @@
 {% endif %}
 
 <!-- 'title':title, 'content':content, 'category':category, 'tag':tag -->
+        {% include 'footer.html' %}
 </body>
+</html>

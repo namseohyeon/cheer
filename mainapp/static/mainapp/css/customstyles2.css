@@ -30,8 +30,8 @@ a:hover{
         }
 
 #title{
-        color:#808080;
-        font-weight:bold
+        font-weight:bold;
+        font-size: 2em;
         }
 
 /*board_detail*/
@@ -49,7 +49,7 @@ a:hover{
 /*sidebar*/
 #sidebar_title{
         color:white;
-        font-weight:bold
+        font-weight:bold;
         }
 #sidebar_name{
         color:white;
@@ -221,7 +221,9 @@ footer {
     font-size: 0.875rem;
 }
 
-
+.card {
+    background: #000;
+}
 
 
 
