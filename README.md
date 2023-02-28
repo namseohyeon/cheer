@@ -11,17 +11,17 @@
 
 
 ## 프로젝트 정보
-1) 작품 개별 환경
+### 1) 작품 개별 환경
 개발환경(IDE) : Visual Studio code (VS code), pycharm<br>
 기술스택 : html, css, JavaScript<br>
 데이터베이스 : sqlite<br>
 형상관리 : Jira, GitHub, Discord<br>
 협업툴: google drive, trello, github, google sheets
 
-2) 전체 아키텍처
+### 2) 전체 아키텍처
 <img width="368" alt="image" src="https://user-images.githubusercontent.com/64974683/221758556-49a82b7a-ee9f-48a5-878f-7f0096659a20.png">
 
-3) 팀원 소개
+### 3) 팀원 소개
 #### fronted 
 권민정, 이동희
 
